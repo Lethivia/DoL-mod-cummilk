@@ -1,0 +1,79 @@
+{
+  "name": "cummilk",
+  "version": "5.3.7.3",
+  "styleFileList": [],
+  "scriptFileList_inject_early": [],
+  "scriptFileList": [],
+  "tweeFileList": [
+		"game/cummilk-widgets.twee"
+	],
+  "imgFileList": [],
+  "additionFile": [],
+  "addonPlugin": [
+    {
+      "modName": "TweeReplacer",
+      "addonName": "TweeReplacerAddon",
+      "modVersion": "1.0.0",
+      "params": [
+        {
+          "passage": "Widgets Masturbation",
+          "findString": "<<unset $reformChastityParasite>>",
+          "replace": "<<cummilk $_bottles>>\n<<unset $reformChastityParasite>>"
+        },
+        {
+          "passage": "Widgets Kitchen",
+          "findString": "<<= _e lt setup",
+          "replace": "<<if $plants[_ingredient].cummilkamount is not undefined and $plants[_ingredient].cummilkamount gte 1>>含<span class='pink'>风味自制奶</span><</if>><<= _e lt setup"
+        },
+        {
+          "passage": "Widgets Kitchen",
+          "findString": "<<tending_give _args[0] setup.plants[_args[0]].multiplier>>",
+          "replace": "<<set $cummilk_flag to false>>"
+        },
+        {
+          "passage": "Widgets Kitchen",
+          "findString": "<<wearProp setup.plants[_args[0]].handheld>>",
+          "replace": "<<tending_give _args[0] setup.plants[_args[0]].multiplier>><<wearProp setup.plants[_args[0]].handheld>>"
+        },
+        {
+          "passage": "Widgets Kitchen",
+          "findString": "<<tending_give setup.plants[_args[0]].ingredients[_i] -1>>",
+          "replace": "<<set _ingredient to setup.plants[_args[0]].ingredients[_i]>><<$plants[_ingredient].cummilkamount is not undefined and $plants[_ingredient].cummilkamount gte 1>><<set $plants[_ingredient].cummilkamount -= 1>><<set $cummilk_flag to true>><</if>><<tending_give setup.plants[_args[0]].ingredients[_i] -1>>"
+        },
+        {
+          "passage": "Widgets Kitchen",
+          "findString": "<<set $_recipeName to $_recipeName.toUpperFirst()>>",
+          "replace": "<<set $_recipeName to $_recipeName.toUpperFirst()>><<if $plants[_args[0]] is not undefined and $plants[_args[0]].cummilkamount is not undefined and $plants[_args[0]].cummilkamount gte 1>><<set $_recipeName to $_recipeName + '(含<span class=\\\"pink\\\">风味自制奶</span>)'>><</if>>"
+		},
+        {
+          "passage": "Widgets Journal",
+          "findString": "<<set _tooltip to `",
+          "replace": "<<if _item.cummilkamount is not undefined and _item.cummilkamount gte 1>><<set _itemName to ${_itemName} + '(含<span class=\\\"pink\\\">风味自制奶</span>)'>><</if>><<set _tooltip to `"
+		},
+        {
+          "passage": "Widgets Tending",
+          "findString": "\"amount\": 0}",
+          "replace": "\"amount\": 0, \"cummilkamount\": 0}",
+		  "all": true
+        },
+        {
+          "passage": "Widgets Tending",
+          "findString": "\"amount\": $plants[$_type].amount}",
+          "replace": "\"amount\": $plants[$_type].amount, \"cummilkamount\": $plants[$_type].cummilkamount}",
+		  "all": true
+        },
+        {
+          "passage": "Widgets Tending",
+          "findString": "<<set $plants[$_type].amount += (_args[1] ? _args[1] : 1)>>",
+          "replace": "<<set $plants[$_type].amount += (_args[1] ? _args[1] : 1)>><<set _cumcount to (_args[1] ? _args[1] : 1)>><<if _cumcount gte 1 and $cummilk_flag is not undefined and $cummilk_flag>><<if $plants[$_type].cummilkamount is undefined>><<set $plants[$_type].cummilkamount to 0>><</if>><<set $plants[$_type].cummilkamount += _cumcount>><<elseif _cumcount lt 0 and $plants[$_type].cummilkamount gte _cumcount>><<set $plants[$_type].cummilkamount += _cumcount>><</if>>"
+        }
+      ]
+    }
+  ],
+  "dependenceInfo": [
+    {
+      "modName": "TweeReplacer",
+      "version": "^1.0.0"
+    }
+  ]
+}

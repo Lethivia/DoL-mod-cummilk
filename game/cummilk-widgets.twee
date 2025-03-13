@@ -1,0 +1,44 @@
+:: CUMMILK [widget]
+<<widget cummilk>>
+	<<set _milk_name to "bottle_of_milk">>
+	<!--
+	<<learn_recipe_all>>
+	<<tending_give "flour">>
+	<<tending_give "sugar">>
+	<<tending_give "cream">>
+	<<robinoptions>>
+	<br>
+	<<link [[Give Robin food|Robin Gifts List]]>><</link>>
+	<br>
+	-->
+
+	<<if $plants["cummilk"] is not undefined>>
+		<<unset $plants["cummilk"]>>
+	<</if>>
+
+	<<if _args[0]>>
+		<<set _milk_count to _args[0]>>
+	<<else>>
+		<<set _milk_count to 0>>
+	<</if>>
+
+	<<set _semen_count to Math.floor($masturbation_semen / 150)>>
+
+	<<set _all_milk_count to _semen_count + _milk_count>>
+
+	<<if _all_milk_count gte 1>>
+		<<tending_give _milk_name _all_milk_count>>
+		<<if $plants[_milk_name].cummilkamount is undefined>>
+			<<set $plants[_milk_name].cummilkamount to 0>>
+		<</if>>
+		<<set $plants[_milk_name].cummilkamount += _all_milk_count>>
+		你将<<if _milk_count gte 1>>_milk_count瓶<span class="pink">母乳</span><</if>><<if _semen_count gte 1>><<if _milk_count gte 1>>和<</if>>_semen_count瓶<span class="teal">精液</span><</if>>装入瓶中，打算在料理中使用，
+		<<print [
+			`希望没人发现味道不对。`,
+			`这可比原装牛奶有营养多了。`,
+			`这种好东西可不能浪费了啊。`,
+			`应该没人会发现..吧。`,
+		][random(0,3)]>>
+		<br>
+	<</if>>
+<</widget>>
