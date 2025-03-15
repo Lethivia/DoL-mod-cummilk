@@ -1,0 +1,13 @@
+:: Robin Cummilk Sex
+
+你将你获取<span class='pink'>风味自制奶</span>、以及将它融入料理的过程告诉了罗宾
+<br><br>
+"天啊！"罗宾惊呼道，"我没想到居然还有这种方法，而且..而且还挺好吃的。"
+<br>
+罗宾扭捏了一会儿说到，"那个..我想尝尝原材料的味道，就是..你的那个.."。罗宾虽然话说的有些磕巴，但手上却没有停下。
+<br>
+<br>
+
+<<set $sexstart to 1>><<npc Robin>><<person1>>
+<<set $cummilksex to true>>
+<<link [[继续|Bed Robin Sex]]>><</link>>

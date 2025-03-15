@@ -1,0 +1,72 @@
+:: CUMMILK [widget]
+<<widget cummilk>>
+	<!--
+	<<set _milk_name to "bottle_of_milk">>
+	<<learn_recipe_all>>
+	<<tending_give "flour" 10>>
+	<<tending_give "sugar" 10>>
+	<<tending_give "cream" 10>>
+	<br>
+	<<robinoptions>>
+	<<link [[Give Robin food|Robin Gifts List]]>><</link>>
+	<br>
+	-->
+
+	<<if $plants["cummilk"] is not undefined>>
+		<<unset $plants["cummilk"]>>
+	<</if>>
+
+	<<if _args[0]>>
+		<<set _milk_count to _args[0]>>
+	<<else>>
+		<<set _milk_count to 0>>
+	<</if>>
+
+	<<set _semen_count to Math.floor($masturbation_semen / 150)>>
+
+	<<set _all_milk_count to _semen_count + _milk_count>>
+
+	<<if _all_milk_count gte 1>>
+		<<tending_give _milk_name _all_milk_count>>
+		<<if $plants[_milk_name].cummilkamount is undefined>>
+			<<set $plants[_milk_name].cummilkamount to 0>>
+		<</if>>
+		<<set $plants[_milk_name].cummilkamount += _all_milk_count>>
+		你将<<if _milk_count gte 1>>足够装满_milk_count瓶的<span class="pink">母乳</span><</if>><<if _semen_count gte 1>><<if _milk_count gte 1>>和<</if>>足够装满_semen_count瓶<span class="teal">的精液</span><</if>>装入牛奶瓶中，打算在料理中使用，
+		<<print [
+			`希望没人发现味道不对。`,
+			`这可比原装牛奶有营养多了。`,
+			`这种好东西可不能浪费了啊。`,
+			`应该没人会发现..吧。`,
+		][random(0,3)]>>
+		<br>
+	<</if>>
+<</widget>>
+
+<<widget cummilkgiftrobin>>
+	<<if $gift.cummilk>>
+		<<set $gift.cummilk to false>>
+		<<set _robin to statusCheck("Robin")>>
+		<<switch State.passage>>
+			<<case "Robin Gifts Share" "Robin Gifts Enjoy" "Robin Gifts Spicy Share" "Robin Gifts Drink Share" "Robin Gifts Drink Enjoy">>
+					<<if _robin.love gte 70>>
+						罗宾有些羞涩地说："我似乎尝到了<span class='pink'>你的味道</span>。"
+					<<elseif _robin.love gte 30>>
+						罗宾疑惑地说："<span class='green'>这似乎和之前的味道不太一样</span>，是你的独家配方么？还挺不错的。"
+					<<else>>
+						"另外，<span class='green'>我觉得似乎有些奇怪的味道..</span>"罗宾怯怯地说道，"不过还是很谢谢你的<<recipe_name $gift.name>>。"
+					<</if>>
+			<<case "Robin Gifts Pudding Ask" "Robin Gifts Pudding Nothing">>
+					<<if _robin.love gte 70>>
+						罗宾："这个<<recipe_name $gift.name>>让我心跳加速，而且似乎有<span class='pink'>你的味道</span>..这是怎么了？"
+                        <br><br>
+						<<link [[告诉罗宾使用的食材|Robin Cummilk Sex]]>><</link>>
+					<<elseif _robin.love gte 30>>
+						罗宾高兴地说："这真是我吃过的最好吃的<<recipe_name $gift.name>>，是你的独家配方么？希望还能再吃到。"
+					<<else>>
+						"这个<<recipe_name $gift.name>>味道格外浓郁"罗宾怯怯地说道，"还想再吃.."
+					<</if>>
+		<</switch>>
+		<br><br>
+	<</if>>
+<</widget>>
