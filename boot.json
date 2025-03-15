@@ -75,8 +75,8 @@
                 },
                 {
                     "passage": "Bed Robin Sex",
-                    "findString": "<<set $enemytrust += 500>><<npckiss>>\n\t<<set $enemyarousalmax to 600>>",
-                    "replace": "<<set $enemytrust += 500>><<npckiss>>\n\t<<set $enemyarousalmax to 600>>\n\t<<if $cummilksex>>\n\t\t<!--case \"chest\" \"chestentrance\" \"chestimminent\" -->\n\t\t<<switch $player.gender>>\n\t\t\t<<case \"h\" \"m\">>\n\t\t\t\t<<set $NPCList[0].mouth to \"peniseimminent\">>\n\t\t\t<<case \"f\">>\n\t\t\t\t<<set $NPCList[0].mouth to \"chestimminent\">>\n\t\t<</switch>>\n\t<</if>>"
+                    "findString": "\t<<maninit>>\n\t<<set $enemytrust += 500>><<npckiss>>\n\t<<set $enemyarousalmax to 600>>",
+                    "replace": "\t<<maninit>>\n\t<<set $enemytrust += 500>><<npckiss>>\n\t<<set $enemyarousalmax to 600>>\n\t<<if $cummilksex>>\n\t\t<!--case \"chest\" \"chestentrance\" \"chestimminent\" -->\n\t\t<<switch $player.gender>>\n\t\t\t<<case \"h\" \"m\">>\n\t\t\t\t<<set $penisuse to \"othermouth\">><<set $penisstate to \"othermouthentrance\">><<set $NPCList[0].mouth to \"penisentrance\">><<set $penistarget to 0>>\n\t\t        <<set $mouthuse to 0>>\n\t\t\t<<case \"f\">>\n\t\t\t\t<<set $NPCList[0].mouth to \"chestentrance\">><<set $chestuse to \"mouth\">><<set $cheststate to \"mouthentrance\">><<set $chesttarget to 0>>\n\t\t        <<set $mouthuse to 0>>\n\t\t<</switch>>\n\t<</if>>"
                 },
                 {
                     "passage": "Widgets Robin",
