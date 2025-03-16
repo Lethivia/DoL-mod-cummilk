@@ -44,7 +44,7 @@
 <</widget>>
 
 <<widget cummilkgiftrobin>>
-	<<if $gift.cummilk>>
+	<<if $gift is not undefined and $gift.cummilk is not undefined and $gift.cummilk>>
 		<<set $gift.cummilk to false>>
 		<<set _robin to statusCheck("Robin")>>
 		<<switch State.passage>>
