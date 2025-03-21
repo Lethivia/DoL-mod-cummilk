@@ -1,7 +1,7 @@
 :: CUMMILK [widget]
 <<widget cummilk>>
-	<!--
 	<<set _milk_name to "bottle_of_milk">>
+	<!--
 	<<learn_recipe_all>>
 	<<tending_give "flour" 10>>
 	<<tending_give "sugar" 10>>
