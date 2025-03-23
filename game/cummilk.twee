@@ -19,18 +19,36 @@
 <<npc Eden>><<person1>>
 你将你获取<span class='pink'>风味自制奶</span>、以及将它融入料理的过程告诉了<<he>>
 <br><br>
+
+<<set _penisSize to setup.penisSizes[$player.penissize + 2]>>
 <<if C.npc.Eden.dom gte 75>>
     <<set $molestationstart to 1>>
-    <<if C.npc.Eden.lust lte C.npc.Eden.dom>>
-    /*欲望大于支配*/
-        "虽然这确实是很好的营养来源，"<<he>>说到，"但你没经我同意就将它用在了料理中，你不知道直接饮用更美味么？"
+    "虽然这确实是很好的营养来源，"<<he>>说到，"但你没经我同意就将它用在了料理中，你不知道直接饮用更美味么？"
+    <br><br>
+    <<if C.npc.Eden.lust gte C.npc.Eden.dom>>
+        <<he>>充满结实肌肉的身体慢慢靠近了你，你被吓得后退几步。
+        <<if $bodysize lte 2>>
+            /*中等及以下身材*/
+            <<he>>两只手抓住你的腿用力一提，你只觉一阵眩晕，竟被伊甸拎了起来。
+        <<else>>
+            <<he>>一把将你推倒，毫不客气的跨坐到你身上。
+        <</if>>
+        <br>
+		<<switch $player.gender>>
+			<<case "h" "m">>
+                <<he>>将嘴靠近你的<<penis>>。
+            <<case "f">>
+                <<he>>将嘴靠近你的<<breasts>>。
+		<</switch>>
         <br><br>
-		<<link [[继续|Eden Cummilk Sex]]>><<set $sexstart to 1>><<set $cummilksex to true>><</link>><<promiscuous1>>
+		<<link [[继续|Eden Cummilk Sex]]>><<set $sexstart to 1>><<set $cummilksex to true>><<npc Eden>><<person1>><</link>>
     <<else>>
-        /*TODO*/ 
-		/*<<link [[继续|Eden Cabin Punishment]]>><</link>>*/
+        "看来你是需要一些惩罚才能记得更清楚"，伊甸说完就将你一把搂了起来，放在了<<he>>的腿上。
+        <br><br>
+		<<link [[继续|Eden Cabin Punishment]]>><</link>>
     <</if>>
 <<else>>
+        TODO
 <</if>>
 
 :: Eden Cummilk Sex Finish
@@ -55,20 +73,20 @@
     你将伊甸推倒在地，
 	<<switch $player.gender>>
 		<<case "h" "m">>
-            接着你开始撸动你_penisSize肉棒，<<he>>想要爬起来但一时竟没有成功。随着你撸动的速度越来越快，<<he>>也不再挣扎，只是有些惊讶地看着你。
+            接着你开始撸动你的<<penis>>，<<he>>想要爬起来但一时竟没有成功。随着你撸动的速度越来越快，<<he>>也不再挣扎，只是有些惊讶地看着你。
             <br><br>
             <<set $arousal to $arousalmax>><<orgasm>><<penileejacstat>><<penilestat>>
-            "你不是想要么？那就给你"，你刚说完一股精液就喷涌而出，落到了伊甸的脸上，<<he>>沉默的闭上了眼睛。等你不再喘息时你才开始后怕，但伊甸没有爆发，只是一言不发地走开，伸手摸去了嘴边的精液。
+            "你不是想要么？那就给你"，你刚说完一股精液就喷涌而出，落到了伊甸的脸上，<<he>>沉默的闭上了眼睛。等你不再喘息时你才开始后怕，但伊甸没有爆发，只是一言不发地走开，伸手抹去了嘴边的精液。
         <<case "f">>
-            接着你开始揉捏你_breastSize胸部，<<he>>有些惊讶地看着你。
+            接着你开始揉捏你的<<breasts>>，<<he>>有些惊讶地看着你。
             <br><br>
             <<set $arousal to $arousalmax>><<orgasm>><<penileejacstat>><<penilestat>>
-            "你不是想要么？那就给你"，随着你的揉捏，母乳不断的落到伊甸的脸上，<<he>>沉默的闭上了眼睛。等你冷静下来时你才开始后怕，但伊甸没有爆发，只是一言不发地走开，伸手摸去了嘴边的液体。
+            "你不是想要么？那就给你"，随着你的揉捏，母乳不断的落到伊甸的脸上，<<he>>沉默的闭上了眼睛。等你冷静下来时你才开始后怕，但伊甸没有爆发，只是一言不发地走开，伸手抹去了嘴边的液体。
 	<</switch>>
     <<npcincr Eden lust -10>><<llust>>
     <<npcincr Eden dom -20>><<ldom>>
 <<elseif $finish is 1>>
-    伊甸喘着气，满足的看着你，"你是我的所有物，包括你的<span class='pink'>牛奶</span>，不许给别人，明白了么？"。你乖巧地点了点头。
+    伊甸喘着气，满足的看着你，"你是我的所有物，你的所有东西都是我的，包括你的<span class='pink'>牛奶</span>，明白了么？"。你乖巧地点了点头。
 	<<npcincr Eden dom 10>><<gdom>>
 <</if>>
 
@@ -78,7 +96,8 @@
 <<endcombat>>
 
 <<if _cummilk_sex_continue>>
-    <<link [[继续|Eden Cummilk Sex]]>><<set $sexstart to 1>><<set $cummilksex to true>><</link>><<promiscuous1>>
+    <<set $molestationstart to 1>>
+    <<link [[继续|Eden Cummilk Sex]]>><<set $sexstart to 0>><<set $cummilksex to true>><<set $molestationstart to 1>><<npc Eden>><<person1>><</link>>
 <<else>>
     <<if $bus is "edenclearing">>
         <<link [[继续|Eden Clearing]]>><<endevent>><</link>>
@@ -90,26 +109,41 @@
 <</if>>
 
 :: Eden Cummilk Sex
+<<if $molestationstart is 1>>
+    <<if $sexstart is 1>>
+        <<He>>紧紧搂住你的腰和双臂，你倒吊在空中并且被<<he>>压制的无法动弹，只能任由<<he>>肆意妄为。
+        <br>
+	    <<if $rightarm is 0>>
+	    	<<set $rightarm to "grappled">>
+	    	<<set $NPCList[0].lefthand to "arms">>
+	    	<<set $righttarget to 0>>
+	    <</if>>
+	    <<if $leftarm is 0>>
+	    	<<set $leftarm to "grappled">>
+	    	<<set $NPCList[0].lefthand to "arms">>
+	    	<<set $lefttarget to 0>>
+	    <</if>>
+    <</if>>
+	<<set $sexstart to 0>>
+	<<set $molestationstart to 0>>
+	<<controlloss>>
+	<<violence 1>>
+	<<neutral 1>>
+	<<molested>>
+	<<maninit>>
+	<<set $enemyanger += 50>>
+	<<set $enemytrust += 100>><<set $enemyhealth to 600>><<set $enemyhealthmax to 600>>
+    <<cummilksexcheck>>
+<</if>>
 <<if $sexstart is 1>>
 	<<set $sexstart to 0>>
-    <<if $molestationstart is 1>>
-	    <<controlloss>>
-	    <<violence 1>>
-    <<else>>
-	    <<consensual>>
-	    <<set $consensual to 1>>
-    <</if>>
+	<<consensual>>
+	<<set $consensual to 1>>
+	<<promiscuity1>>
 	<<neutral 1>>
 	<<maninit>>
 	<<set $enemytrust += 100>><<set $enemyhealth to 600>><<set $enemyhealthmax to 600>>
-	<<promiscuity1>>
     <<cummilksexcheck>>
-<</if>>
-<<if $molestationstart is 1>>
-	<<set $molestationstart to 0>>
-	<<neutral 1>>
-	<<molested>>
-	<<maninit>><<set $enemyhealth to 600>><<set $enemyhealthmax to 600>><<set $enemyanger += 50>>
 <</if>>
 
 <<effects>>
