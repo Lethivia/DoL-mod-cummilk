@@ -43,6 +43,20 @@
 	<</if>>
 <</widget>>
 
+<<widget cummilksexcheck>>
+	<<if $cummilksex>>
+		<!--case "chest" "chestentrance" "chestimminent" -->
+		<<switch $player.gender>>
+			<<case "h" "m">>
+				<<set $penisuse to "othermouth">><<set $penisstate to "othermouthentrance">><<set $NPCList[0].mouth to "penisentrance">><<set $penistarget to 0>>
+		        <<set $mouthuse to 0>>
+			<<case "f">>
+				<<set $NPCList[0].mouth to "chestentrance">><<set $chestuse to "mouth">><<set $cheststate to "mouthentrance">><<set $chesttarget to 0>>
+		        <<set $mouthuse to 0>>
+		<</switch>>
+	<</if>>
+<</widget>>
+
 <<widget cummilkgiftrobin>>
 	<<if $gift is not undefined and $gift.cummilk is not undefined and $gift.cummilk>>
 		<<set $gift.cummilk to false>>
@@ -66,6 +80,27 @@
 					<<else>>
 						"这个<<recipe_name $gift.name>>味道格外浓郁"罗宾怯怯地说道，"还想再吃.."
 					<</if>>
+		<</switch>>
+		<br><br>
+	<</if>>
+<</widget>>
+
+<<widget cummilkgifteden>>
+	<<if $gift is not undefined and $gift.cummilk is not undefined and $gift.cummilk>>
+		<<set $gift.cummilk to false>>
+		<<set _person to statusCheck("Eden")>>
+		<<switch State.passage>>
+			<<case >>
+                    /*TODO*/
+					<<if _person.love gte 70>>
+					<<elseif _person.love gte 30>>
+					<<else>>
+					<</if>>
+			<<case "Eden Gifts Pudding Silent" "Eden Gifts Pudding Like">>
+				不过伊甸敏锐的嗅觉和味觉还是让<<he>>尝出了<<recipe_name $gift.name>>成份的微妙不同，"这里面放了什么？虽然不是什么坏东西。"
+
+                <<link [[告诉伊甸|Eden Cummilk Response]]>><</link>><!--check love-->
+                <<link [[欺骗伊甸|Eden Cummilk Response]]>><</link>><!--check skill zhipei TODO-->
 		<</switch>>
 		<br><br>
 	<</if>>

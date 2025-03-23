@@ -76,12 +76,44 @@
                 {
                     "passage": "Bed Robin Sex",
                     "findString": "\t<<maninit>>\n\t<<set $enemytrust += 500>><<npckiss>>\n\t<<set $enemyarousalmax to 600>>",
-                    "replace": "\t<<maninit>>\n\t<<set $enemytrust += 500>><<npckiss>>\n\t<<set $enemyarousalmax to 600>>\n\t<<if $cummilksex>>\n\t\t<!--case \"chest\" \"chestentrance\" \"chestimminent\" -->\n\t\t<<switch $player.gender>>\n\t\t\t<<case \"h\" \"m\">>\n\t\t\t\t<<set $penisuse to \"othermouth\">><<set $penisstate to \"othermouthentrance\">><<set $NPCList[0].mouth to \"penisentrance\">><<set $penistarget to 0>>\n\t\t        <<set $mouthuse to 0>>\n\t\t\t<<case \"f\">>\n\t\t\t\t<<set $NPCList[0].mouth to \"chestentrance\">><<set $chestuse to \"mouth\">><<set $cheststate to \"mouthentrance\">><<set $chesttarget to 0>>\n\t\t        <<set $mouthuse to 0>>\n\t\t<</switch>>\n\t<</if>>"
+                    "replace": "\t<<maninit>>\n\t<<set $enemytrust += 500>><<npckiss>>\n\t<<set $enemyarousalmax to 600>>\n\t<<cummilksexcheck>>"
                 },
                 {
                     "passage": "Widgets Robin",
                     "findString": "<</widget>>\n\n<<widget \"robinoptions\">>",
                     "replace": "<</widget>>\n\n<<widget \"robinoptions\">>\n\t<<cummilkgiftrobin>>"
+                },
+
+                {
+                    "passage": "Eden Gifts",
+                    "findString": "<<if $bus is \"edenclearing\">>",
+                    "replace": "<<cummilkgifteden>>\n<<if $bus is \"edenclearing\">>",
+                    "all": true
+                },
+                {
+                    "passage": "Eden Gifts Pudding Like",
+                    "findString": "<<if $bus is \"edenclearing\">>",
+                    "replace": "<<cummilkgifteden>>\n<<if $bus is \"edenclearing\">>"
+                },
+                {
+                    "passage": "Eden Gifts Pudding Silent",
+                    "findString": "<<if $bus is \"edenclearing\">>",
+                    "replace": "<<cummilkgifteden>>\n<<if $bus is \"edenclearing\">>"
+                },
+                {
+                    "passage": "Eden Gifts Steak Cute",
+                    "findString": "<<if $bus is \"edenclearing\">>",
+                    "replace": "<<cummilkgifteden>>\n<<if $bus is \"edenclearing\">>"
+                },
+                {
+                    "passage": "Eden Gifts Steak Cheeky",
+                    "findString": "<<if $bus is \"edenclearing\">>",
+                    "replace": "<<cummilkgifteden>>\n<<if $bus is \"edenclearing\">>"
+                },
+                {
+                    "passage": "Eden Gifts Steak Nothing",
+                    "findString": "<<if $bus is \"edenclearing\">>",
+                    "replace": "<<cummilkgifteden>>\n<<if $bus is \"edenclearing\">>"
                 }
       ]
     }

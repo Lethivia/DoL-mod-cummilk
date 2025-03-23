@@ -12,3 +12,115 @@
 <<set $sexstart to 1>><<npc Robin>><<person1>>
 <<set $cummilksex to true>>
 <<link [[继续|Bed Robin Sex]]>><</link>>
+
+
+<!-- -------------EDEN------------- -->
+:: Eden Cummilk Response
+<<npc Eden>><<person1>>
+你将你获取<span class='pink'>风味自制奶</span>、以及将它融入料理的过程告诉了<<he>>
+<br><br>
+<<if C.npc.Eden.dom gte 75>>
+    <<set $molestationstart to 1>>
+    <<if C.npc.Eden.lust lte C.npc.Eden.dom>>
+    /*欲望大于支配*/
+        "虽然这确实是很好的营养来源，"<<he>>说到，"但你没经我同意就将它用在了料理中，你不知道直接饮用更美味么？"
+        <br><br>
+		<<link [[继续|Eden Cummilk Sex]]>><<set $sexstart to 1>><<set $cummilksex to true>><</link>><<promiscuous1>>
+    <<else>>
+        /*TODO*/ 
+		/*<<link [[继续|Eden Cabin Punishment]]>><</link>>*/
+    <</if>>
+<<else>>
+<</if>>
+
+:: Eden Cummilk Sex Finish
+<<set $outside to 0>><<set $location to "cabin">><<effects>>
+
+<<if $enemyarousal gte $enemyarousalmax>>
+	<<ejaculation>><<npcincr Eden lust -20>>
+
+    <<if $orgasmcurrent is 0>>
+		<<switch $player.gender>>
+			<<case "h" "m">>
+                伊甸喘着气，不可思议的看着你，"你还挺持久？我看你能撑几次！"，说完又向你扑过来。
+                <<npcincr Eden lust 20>><<glust>>
+                <<set _cummilk_sex_continue to true>>
+		<</switch>>
+    <</if>>
+    <<if _cummilk_sex_continue is not true>>
+        伊甸喘着气，满足的看着你，"你是我的所有物，包括你的<span class='pink'>牛奶</span>，不许给别人，明白了么？"。你乖巧地点了点头。
+		<<npcincr Eden dom 10>><<gdom>>
+    <</if>>
+<<elseif $enemyhealth lte 0>>
+    你将伊甸推倒在地，
+	<<switch $player.gender>>
+		<<case "h" "m">>
+            接着你开始撸动你_penisSize肉棒，<<he>>想要爬起来但一时竟没有成功。随着你撸动的速度越来越快，<<he>>也不再挣扎，只是有些惊讶地看着你。
+            <br><br>
+            <<set $arousal to $arousalmax>><<orgasm>><<penileejacstat>><<penilestat>>
+            "你不是想要么？那就给你"，你刚说完一股精液就喷涌而出，落到了伊甸的脸上，<<he>>沉默的闭上了眼睛。等你不再喘息时你才开始后怕，但伊甸没有爆发，只是一言不发地走开，伸手摸去了嘴边的精液。
+        <<case "f">>
+            接着你开始揉捏你_breastSize胸部，<<he>>有些惊讶地看着你。
+            <br><br>
+            <<set $arousal to $arousalmax>><<orgasm>><<penileejacstat>><<penilestat>>
+            "你不是想要么？那就给你"，随着你的揉捏，母乳不断的落到伊甸的脸上，<<he>>沉默的闭上了眼睛。等你冷静下来时你才开始后怕，但伊甸没有爆发，只是一言不发地走开，伸手摸去了嘴边的液体。
+	<</switch>>
+    <<npcincr Eden lust -10>><<llust>>
+    <<npcincr Eden dom -20>><<ldom>>
+<<elseif $finish is 1>>
+    伊甸喘着气，满足的看着你，"你是我的所有物，包括你的<span class='pink'>牛奶</span>，不许给别人，明白了么？"。你乖巧地点了点头。
+	<<npcincr Eden dom 10>><<gdom>>
+<</if>>
+
+<br><br>
+
+<<clotheson>>
+<<endcombat>>
+
+<<if _cummilk_sex_continue>>
+    <<link [[继续|Eden Cummilk Sex]]>><<set $sexstart to 1>><<set $cummilksex to true>><</link>><<promiscuous1>>
+<<else>>
+    <<if $bus is "edenclearing">>
+        <<link [[继续|Eden Clearing]]>><<endevent>><</link>>
+        <br>
+    <<else>>
+        <<link [[继续|Eden Cabin]]>><<endevent>><</link>>
+        <br>
+    <</if>>
+<</if>>
+
+:: Eden Cummilk Sex
+<<if $sexstart is 1>>
+	<<set $sexstart to 0>>
+    <<if $molestationstart is 1>>
+	    <<controlloss>>
+	    <<violence 1>>
+    <<else>>
+	    <<consensual>>
+	    <<set $consensual to 1>>
+    <</if>>
+	<<neutral 1>>
+	<<maninit>>
+	<<set $enemytrust += 100>><<set $enemyhealth to 600>><<set $enemyhealthmax to 600>>
+	<<promiscuity1>>
+    <<cummilksexcheck>>
+<</if>>
+<<if $molestationstart is 1>>
+	<<set $molestationstart to 0>>
+	<<neutral 1>>
+	<<molested>>
+	<<maninit>><<set $enemyhealth to 600>><<set $enemyhealthmax to 600>><<set $enemyanger += 50>>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend>>
+	<span id="next"><<link [[继续|Eden Cummilk Sex Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[继续|Eden Cummilk Sex]]>><</link>></span><<nexttext>>
+<</if>>
