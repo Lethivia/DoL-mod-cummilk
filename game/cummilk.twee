@@ -25,14 +25,10 @@
     <<set $molestationstart to 1>>
     "虽然这确实是很好的营养来源，"<<he>>说到，"但你没经我同意就将它用在了料理中，你不知道直接饮用更美味么？"
     <br><br>
-    <<if C.npc.Eden.lust gte C.npc.Eden.dom>>
-        <<he>>充满结实肌肉的身体慢慢靠近了你，你被吓得后退几步。
-        <<if $bodysize lte 2>>
-            /*中等及以下身材*/
-            <<he>>两只手抓住你的腿用力一提，你只觉一阵眩晕，竟被伊甸拎了起来。
-        <<else>>
-            <<he>>一把将你推倒，毫不客气的跨坐到你身上。
-        <</if>>
+    <<if C.npc.Eden.lust gte 30>>
+        <<he>>充满结实肌肉的身体慢慢靠近了你，你被吓得后退了几步。
+        <<he>>两只手抓住你的腿用力一提，你只觉一阵眩晕，竟被伊甸拎了起来。
+        <<set $cummilkedenhang to true>>
         <br>
 		<<switch $player.gender>>
 			<<case "h" "m">>
@@ -48,7 +44,67 @@
 		<<link [[继续|Eden Cabin Punishment]]>><</link>>
     <</if>>
 <<else>>
-        TODO
+    <<if C.npc.Eden.lust*2 gte C.npc.Eden.love>>
+        伊甸舔了舔嘴唇向你走来，"我想尝尝他们原本的味道"，<<he>>说完走到了你的面前。
+        <<he>>两只手抓住你的腿用力一提，你只觉一阵眩晕，竟被伊甸拎了起来。
+        <<set $cummilkedenhang to true>>
+        <br>
+	    <<switch $player.gender>>
+	    	<<case "h" "m">>
+                <<he>>将嘴靠近你的<<penis>>。
+            <<case "f">>
+                <<he>>将嘴靠近你的<<breasts>>。
+	    <</switch>>
+        <br><br>
+	    <<link [[继续|Eden Cummilk Sex]]>><<set $sexstart to 1>><<set $cummilksex to true>><<npc Eden>><<person1>><<set $cummilkedenlowdom to true>><</link>>
+    <<else>>
+        伊甸略有惊讶的说，"是么？让我尝尝原味的"，说完<<he>>一把将你搂入怀中，
+	    <<switch $player.gender>>
+	    	<<case "h" "m">>
+                <<he>>将嘴靠近你的<<penis>>。
+            <<case "f">>
+                <<he>>将嘴靠近你的<<breasts>>。
+	    <</switch>>
+        <br><br>
+	    <<link [[继续|Eden Cummilk Sex]]>><<set $sexstart to 1>><<set $cummilksex to true>><<npc Eden>><<person1>><<set $cummilkedenlowdom to true>><</link>>
+    <</if>>
+<</if>>
+
+:: Eden Cummilk Liar
+<<skulduggerycheck>>
+<br>
+<<if $skulduggerysuccess is 1>>
+    "是么？"伊甸疑惑的说到，"看来和你时间长了，味觉都有些退化了。"
+    <<skulduggeryuse>>
+    <<he>>没发现你的小秘密，你暗自得意。
+    <<lstress>><<stress -10>>
+    <br><br>
+    <<if $bus is "edenclearing">>
+        <<link [[继续|Eden Clearing]]>><<endevent>><</link>>
+        <br>
+    <<else>>
+        <<link [[继续|Eden Cabin]]>><<endevent>><</link>>
+        <br>
+    <</if>>
+<<else>>
+    "你以为我味觉失灵了么？别以为我不知道你用了什么！"，伊甸愤怒的说着。"你是不是还给别人吃过？！你是我的所有物，你的一切都是我的！"，你害怕得后退着。伊甸随手抄起周围的物品向你扔来，你勉强闪避但还有砸到了你身上。
+    <<gpain>><<pain 3>>
+    <br><br>
+    伊甸向你逼来...终于<<he>>站到了你的面前，左一拳<<gpain>><<pain 3>>右一拳<<gpain>><<pain 3>>的向你打来，"说！你还给谁吃过！"，拳头像雨点一样扑面而来<<ggpain>><<pain 8>><<ggpain>><<pain 8>><<ggpain>><<pain 8>><<ggpain>><<pain 8>>，你咬牙忍受着。
+    <br>
+    "对不起..对不起.."你泣不成声<<ggtrauma>><<trauma 20>><<gggdom>><<npcincr Eden dom 30>>。终于伊甸似乎稍微缓和了下来，<<he>>两只手抓住你的腿用力一提，你被伊甸拎了起来，就像<<he>>打到的战利品。
+    <br>
+    <<set $cummilkedenhang to true>>
+    <<set $molestationstart to 1>>
+	<<switch $player.gender>>
+		<<case "h" "m">>
+            <<he>>将嘴靠近你的<<penis>>。
+        <<case "f">>
+            <<he>>将嘴靠近你的<<breasts>>。
+	<</switch>>
+    <br><br>
+	<<link [[继续|Eden Cummilk Sex]]>><<set $sexstart to 1>><<set $cummilksex to true>><<npc Eden>><<person1>><<set $cummilkedenanger to true>><<set $molestationstart to 1>><</link>>
+
 <</if>>
 
 :: Eden Cummilk Sex Finish
@@ -66,8 +122,22 @@
 		<</switch>>
     <</if>>
     <<if _cummilk_sex_continue is not true>>
-        伊甸喘着气，满足的看着你，"你是我的所有物，包括你的<span class='pink'>牛奶</span>，不许给别人，明白了么？"。你乖巧地点了点头。
-		<<npcincr Eden dom 10>><<gdom>>
+        <<if $cummilkedenlowdom>>
+            伊甸和你一起喘着气，<<he>>满足的看着你，意犹未尽的舔着舌头。"味道不错"，<<he>>说到。
+		    <<npcincr Eden love 2>><<glove>>
+        <<else>>
+            <<if $cummilkedenanger>>
+                <<unset $cummilkedenanger>>
+                伊甸擦拭着嘴边的液体逐渐冷静了下来，<<he>>闭着眼睛平复着情绪。"这不是我想要的，不是.."，伊甸像在对你说也像在自言自语，"你不要怪我，这不是我想要的.."。
+                你不敢多说什么，默默的收拾着衣服，然后转身离开那个施暴者。
+		        <<npcincr Eden love 10>><<gglove>>
+		        <<npcincr Eden lust -5>><<lllust>>
+		        <<npcincr Eden dom -5>><<lldom>>
+            <<else>>
+                伊甸喘着气，满足的看着你，"你是我的所有物，包括你的<span class='pink'>牛奶</span>，不许给别人，明白了么？"。你乖巧地点了点头。
+		        <<npcincr Eden dom 10>><<gdom>>
+            <</if>>
+        <</if>>
     <</if>>
 <<elseif $enemyhealth lte 0>>
     你将伊甸推倒在地，
@@ -96,9 +166,14 @@
 <<endcombat>>
 
 <<if _cummilk_sex_continue>>
-    <<set $molestationstart to 1>>
-    <<link [[继续|Eden Cummilk Sex]]>><<set $sexstart to 0>><<set $cummilksex to true>><<set $molestationstart to 1>><<npc Eden>><<person1>><</link>>
+    <<if $cummilkedenlowdom>>
+        <<set $molestationstart to 0>><<set $sexstart to 1>>
+    <<else>>
+        <<set $molestationstart to 1>><<set $sexstart to 0>>
+    <</if>>
+    <<link [[继续|Eden Cummilk Sex]]>><<set $cummilksex to true>><<npc Eden>><<person1>><</link>>
 <<else>>
+    <<unset $cummilkedenlowdom>>
     <<if $bus is "edenclearing">>
         <<link [[继续|Eden Clearing]]>><<endevent>><</link>>
         <br>
@@ -109,21 +184,26 @@
 <</if>>
 
 :: Eden Cummilk Sex
-<<if $molestationstart is 1>>
-    <<if $sexstart is 1>>
-        <<He>>紧紧搂住你的腰和双臂，你倒吊在空中并且被<<he>>压制的无法动弹，只能任由<<he>>肆意妄为。
-        <br>
-	    <<if $rightarm is 0>>
-	    	<<set $rightarm to "grappled">>
-	    	<<set $NPCList[0].lefthand to "arms">>
-	    	<<set $righttarget to 0>>
-	    <</if>>
-	    <<if $leftarm is 0>>
-	    	<<set $leftarm to "grappled">>
-	    	<<set $NPCList[0].lefthand to "arms">>
-	    	<<set $lefttarget to 0>>
-	    <</if>>
+<<if $cummilkedenhang>>
+    <<unset $cummilkedenhang>>
+    <<if $molestationstart is 1>>
+        伊甸紧紧搂住你的腰和双臂，你倒吊在空中并且被<<he>>压制的无法动弹，只能任由<<he>>肆意妄为。
+    <<else>>
+        伊甸紧紧搂住你的腰和双臂将你倒吊在空中，你别无他法只得任由<<he>>肆意妄为。
     <</if>>
+    <br>
+    <<if $rightarm is 0>>
+    	<<set $rightarm to "grappled">>
+    	<<set $NPCList[0].lefthand to "arms">>
+    	<<set $righttarget to 0>>
+    <</if>>
+    <<if $leftarm is 0>>
+    	<<set $leftarm to "grappled">>
+    	<<set $NPCList[0].lefthand to "arms">>
+    	<<set $lefttarget to 0>>
+    <</if>>
+<</if>>
+<<if $molestationstart is 1>>
 	<<set $sexstart to 0>>
 	<<set $molestationstart to 0>>
 	<<controlloss>>
@@ -131,7 +211,14 @@
 	<<neutral 1>>
 	<<molested>>
 	<<maninit>>
-	<<set $enemyanger += 50>>
+    <<if $cummilkedenanger>>
+	    <<set $enemyanger += 200>>
+        <br>
+        伊甸非常愤怒，<<he>>向你发泄着怒火。
+        <br><br>
+    <<else>>
+	    <<set $enemyanger += 50>>
+    <</if>>
 	<<set $enemytrust += 100>><<set $enemyhealth to 600>><<set $enemyhealthmax to 600>>
     <<cummilksexcheck>>
 <</if>>

@@ -94,14 +94,17 @@
 			<<case "Eden Gifts Pudding Silent" "Eden Gifts Pudding Like">>
 				不过伊甸敏锐的嗅觉和味觉还是让<<he>>尝出了<<recipe_name $gift.name>>成份的微妙不同，"这里面放了什么？虽然不是什么坏东西。"
                 <br><br>
-                <<link [[告诉伊甸|Eden Cummilk Response]]>><</link>><!--check love-->
+                <<link [[告诉伊甸|Eden Cummilk Response]]>><</link>>
                 <br>
-                <<link [[欺骗伊甸|Eden Cummilk Response]]>><</link>><!--check skill zhipei TODO-->
+                <<set $skulduggerydifficulty to 1200>>
+                <<link [[欺骗伊甸|Eden Cummilk Liar]]>><</link>><<skulduggerydifficulty>>
 			<<default>>
-                    /*TODO*/
-					<<if _person.love gte 70>>
-					<<elseif _person.love gte 30>>
+					<<if _person.love gte 100>>
+				不过伊甸敏锐的嗅觉和味觉还是让<<he>>尝出了<<recipe_name $gift.name>>成份的微妙不同，"看来这里面有些<span class='pink'>美味</span>的东西"
+					<<elseif _person.love gte 40>>
+				不过伊甸敏锐的嗅觉和味觉还是让<<he>>尝出了<<recipe_name $gift.name>>成份的微妙不同，"看来这里面有些<span class='green'>好</span>的东西"
 					<<else>>
+				不过伊甸敏锐的嗅觉和味觉还是让<<he>>尝出了<<recipe_name $gift.name>>成份的微妙不同，"看来这里面有些<span class='green'>奇怪的</span>的东西"
 					<</if>>
 		<</switch>>
 		<br><br>
