@@ -102,10 +102,36 @@
 					<<if _person.love gte 100>>
 				不过伊甸敏锐的嗅觉和味觉还是让<<he>>尝出了<<recipe_name $gift.name>>成份的微妙不同，"看来这里面有些<span class='pink'>美味</span>的东西"
 					<<elseif _person.love gte 40>>
-				不过伊甸敏锐的嗅觉和味觉还是让<<he>>尝出了<<recipe_name $gift.name>>成份的微妙不同，"看来这里面有些<span class='green'>好</span>的东西"
+				不过伊甸敏锐的嗅觉和味觉还是让<<he>>尝出了<<recipe_name $gift.name>>成份的微妙不同，"看来这里面有些<span class='green'>好</span>东西"
 					<<else>>
-				不过伊甸敏锐的嗅觉和味觉还是让<<he>>尝出了<<recipe_name $gift.name>>成份的微妙不同，"看来这里面有些<span class='green'>奇怪的</span>的东西"
+				不过伊甸敏锐的嗅觉和味觉还是让<<he>>尝出了<<recipe_name $gift.name>>成份的微妙不同，"看来这里面有些<span class='green'>奇怪的</span>东西"
 					<</if>>
+		<</switch>>
+		<br><br>
+	<</if>>
+<</widget>>
+
+<<widget cummilkgiftwhitney>>
+	<<if $gift is not undefined and $gift.cummilk is not undefined and $gift.cummilk>>
+		<<set $gift.cummilk to false>>
+		<<set _person to statusCheck("Whitney")>>
+		<<switch State.passage>>
+		<<case "Whitney Gifts Pizza Eat" "Whitney Gifts Pizza Refuse" "Whitney Gifts Flapjack Refuse" "Whitney Gifts Flapjack Nibble" "Whitney Gifts Flapjack Help" "Whitney Gifts Flapjack Laugh" "Whitney Gifts Flapjack Bite" "Whitney Gifts Flapjack Scoff" "Whitney Gifts Belgian Necessary" "Whitney Gifts Belgian Friends">>
+			<<if _person.dom gte 10>>
+			TODO
+			<<else>>
+				"看来你还在里面放了些<span class='pink'>秘密材料</span>，我一尝就知道那是什么了。"惠特尼勾着一抹若有若无的笑说到，"礼尚往来嘛，现在该你了"。
+				<<link [[继续|Whitney Cummilk Sex]]>><<set $sexstart to 1>><<set $cummilksex to true>><<npc Whitney>><<person1>><</link>>
+			<</if>>
+		<<default>>
+			<<if _person.love gte 20>>
+				"另外，别以为我不知道你在里面放了什么"，惠特尼勾着一抹若有若无的笑，右手拂过你的下颌，轻托起你的脸，"味道还不错"，<<he>>轻眨眼睛，"有机会让你尝尝我的"。
+			<<elseif _person.love gte 10>>
+				"另外，别以为我不知道你在里面放了什么"，惠特尼勾着一抹若有若无的笑对你说到，"味道还不错"。
+			<<else>>
+				"另外，别以为我不知道你在里面放了什么"，惠特尼冷笑着对你说到，"你胆子倒是不小"。
+			<</if>>
+			说完<<he>>头也不回的走了。
 		<</switch>>
 		<br><br>
 	<</if>>

@@ -184,44 +184,32 @@
 <</if>>
 
 :: Eden Cummilk Sex
-<<if $cummilkedenhang>>
-    <<unset $cummilkedenhang>>
-    <<if $molestationstart is 1>>
-        伊甸紧紧搂住你的腰和双臂，你倒吊在空中并且被<<he>>压制的无法动弹，只能任由<<he>>肆意妄为。
-    <<else>>
-        伊甸紧紧搂住你的腰和双臂将你倒吊在空中，你别无他法只得任由<<he>>肆意妄为。
-    <</if>>
-    <br>
-    <<if $rightarm is 0>>
-    	<<set $rightarm to "grappled">>
-    	<<set $NPCList[0].lefthand to "arms">>
-    	<<set $righttarget to 0>>
-    <</if>>
-    <<if $leftarm is 0>>
-    	<<set $leftarm to "grappled">>
-    	<<set $NPCList[0].lefthand to "arms">>
-    	<<set $lefttarget to 0>>
-    <</if>>
-<</if>>
-<<if $molestationstart is 1>>
+<<if $sexstart is 1>>
 	<<set $sexstart to 0>>
-	<<set $molestationstart to 0>>
-	<<controlloss>>
-	<<violence 1>>
+	<<consensual>>
+	<<set $consensual to 1>>
+	<<promiscuity1>>
 	<<neutral 1>>
-	<<molested>>
 	<<maninit>>
-    <<if $cummilkedenanger>>
-	    <<set $enemyanger += 200>>
-        <br>
-        伊甸非常愤怒，<<he>>向你发泄着怒火。
-        <br><br>
-    <<else>>
-	    <<set $enemyanger += 50>>
-    <</if>>
 	<<set $enemytrust += 100>><<set $enemyhealth to 600>><<set $enemyhealthmax to 600>>
     <<cummilksexcheck>>
 <</if>>
+
+<<effects>>
+<<effectsman>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend>>
+	<span id="next"><<link [[继续|Eden Cummilk Sex Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[继续|Eden Cummilk Sex]]>><</link>></span><<nexttext>>
+<</if>>
+
+<!-- -------------WHITNEY------------- -->
+:: Whitney Cummilk Sex
 <<if $sexstart is 1>>
 	<<set $sexstart to 0>>
 	<<consensual>>
