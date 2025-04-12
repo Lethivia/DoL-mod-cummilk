@@ -58,6 +58,18 @@
 	<</if>>
 <</widget>>
 
+<<widget cummilksexcheckother>>
+	<<if $cummilksex>>
+		<<set _target to $NPCList[0]>>
+		<<switch _target.gender>>
+			<<case "h" "m">>
+				<<set _target.penis to "mouthentrance">><<set $mouthstate to "entrance">><<set $mouthuse to "penis">><<set $mouthtarget to 0>>
+			<<case "f">>
+				<<set _target.chest to "mouthentrance">><<set $mouthstate to "breasts">><<set $mouthuse to "breasts">><<set $mouthtarget to 0>>
+		<</switch>>
+	<</if>>
+<</widget>>
+
 <<widget cummilkgiftrobin>>
 	<<if $gift is not undefined and $gift.cummilk is not undefined and $gift.cummilk>>
 		<<set $gift.cummilk to false>>
@@ -118,12 +130,19 @@
 		<<switch State.passage>>
 		<<case "Whitney Gifts Pizza Eat" "Whitney Gifts Pizza Refuse" "Whitney Gifts Flapjack Refuse" "Whitney Gifts Flapjack Nibble" "Whitney Gifts Flapjack Help" "Whitney Gifts Flapjack Laugh" "Whitney Gifts Flapjack Bite" "Whitney Gifts Flapjack Scoff" "Whitney Gifts Belgian Necessary" "Whitney Gifts Belgian Friends">>
 			<<if _person.dom gte 10>>
-			TODO
+				"看来你还在里面放了些<span class='pink'>秘密材料</span>，我一尝就知道那是什么了。"惠特尼坏笑着说到，"看来你需要一些特别的<span class='lblue'>奖励</span>"。
+				<br><br>
+				<<link [[继续|Whitney Cummilk Dom]]>><</link>>
 			<<else>>
 				"看来你还在里面放了些<span class='pink'>秘密材料</span>，我一尝就知道那是什么了。"惠特尼勾着一抹若有若无的笑说到，"礼尚往来嘛，现在该你了"。
+				<br>
+				说完<<he>>向你靠近。
+				<br><br>
 				<<link [[继续|Whitney Cummilk Sex]]>><<set $sexstart to 1>><<set $cummilksex to true>><<npc Whitney>><<person1>><</link>>
+				<<link [[说你想被支配|Whitney Cummilk Dom]]>><<set $cummilkwhitneymoredom to true>><</link>>
 			<</if>>
 		<<default>>
+			<<set $cummilkkeepwhitneyoptions to true>>
 			<<if _person.love gte 20>>
 				"另外，别以为我不知道你在里面放了什么"，惠特尼勾着一抹若有若无的笑，右手拂过你的下颌，轻托起你的脸，"味道还不错"，<<he>>轻眨眼睛，"有机会让你尝尝我的"。
 			<<elseif _person.love gte 10>>
@@ -131,8 +150,44 @@
 			<<else>>
 				"另外，别以为我不知道你在里面放了什么"，惠特尼冷笑着对你说到，"你胆子倒是不小"。
 			<</if>>
-			说完<<he>>头也不回的走了。
+			<br><br>
 		<</switch>>
-		<br><br>
 	<</if>>
+<</widget>>
+
+<<widget cummilkgetbus>>
+	<<if $location is "beach">>
+		<<set $cummilkbus to "海滩">><<set $cummilkbusdesc to "你感到一阵阵轻微的风吹来，周围满是嘈杂喧闹的声音，脚下的路也不再平整，柔软的像是沙子。">>
+	<<elseif $location is "forest">>
+		<<set $cummilkbus to "森林">><<set $cummilkbusdesc to "">>
+	<<else>>
+		<<switch $bus>>
+			<<case "barb">><<set $cummilkbus to "倒钩街">><<set $cummilkbusdesc to "你感到些许轻微的风吹来，周围满是车流的嘈杂，不时有警笛的声音传来。">>
+			<<case "clif">> <<set $cummilkbus to "峭壁街">><<set $cummilkbusdesc to "你感到一阵阵轻微的风吹来，同时闻到了若有若无的食物香味。">>
+        	<<case "starfish">><<set $cummilkbus to "海星街">><<set $cummilkbusdesc to "你感到一阵阵轻微的风吹来，周围满是嘈杂喧闹的声音。">>
+        	<<case "mer">><<set $cummilkbus to "梅尔街">><<set $cummilkbusdesc to "你感到些许轻微的风吹来，周围满是吵闹的噪音。">>
+        	<<case "domus">><<set $cummilkbus to "宅邸街">><<set $cummilkbusdesc to "你听到了街道上的车来人往，其中夹杂着一些孩子们的声音。">>
+    		<<case "residential">><<set $cummilkbus to "住宅区小巷">><<set $cummilkbusdesc to "你听到了远处街道上的车来人往，但这里相对僻静，不时有自行车铃声响起。">>
+    		<<case "connudatus">><<set $cummilkbus to "康达努斯街">><<if ["day", "dawn"].includes(Time.dayState)>><<set $cummilkbusdesc to "你听到了各种小贩叫卖的声音。">><<else>><<set $cummilkbusdesc to "你听到了喧嚣的音乐和不断沸腾的人群，还有隐隐飘来的酒气。">><</if>>
+    		<<case "commercial">><<set $cummilkbus to "商业街小巷">><<set $cummilkbusdesc to "你听到了远处街道上的车来人往，但近处却只有你和惠特尼的脚步声。">>
+        	<<case "high">><<set $cummilkbus to "商业街">><<set $cummilkbusdesc to "你听到了街道上的车来人往，但却没有多少语言交流传入你的耳朵。">>
+          	<<case "park">><<set $cummilkbus to "公园">><<set $cummilkbusdesc to "你感觉到这里相对更凉爽一些，不时有快速的脚步声从你旁边经过，你还能听见孩童们在游戏区的嬉戏声。">>
+        	<<case "oxford">><<set $cummilkbus to "牛津街">>
+				<<if Time.schoolDay and Time.dayState is not "night">>
+					<<set $cummilkbusdesc to "你听到周围不时有车辆经过，不时有孩子们的嬉闹声传入你的耳朵。">>
+				<<else>>
+					<<set $cummilkbusdesc to "你听到周围不时有车辆经过，除此之外一片寂静。">>
+				<</if>>
+    		<<case "industrial">><<set $cummilkbus to "工业区小巷">><<set $cummilkbusdesc to "你闻到周围有一股机油的味道，同时听到周围的建筑里传来机器运转的声音。">>
+        	<<case "harvest">><<set $cummilkbus to "丰收街">><<set $cummilkbusdesc to "你听到周围不断地有车辆经过，不时有各种果蔬的味道钻入你的鼻子。">>
+      		<<case "danube">><<set $cummilkbus to "多瑙河街">><<set $cummilkbusdesc to "你听到周围不时有车辆经过，远处偶尔传来几声狼嚎。">>
+          	<<case "wolf">><<set $cummilkbus to "狼街">><<set $cummilkbusdesc to "你听到周围不时有车辆经过，不远处偶尔传来几声狼嚎。">>
+    		<<case "nightingale">><<set $cummilkbus to "南丁格尔街">><<set $cummilkbusdesc to "你听到周围不时有车辆经过，远处偶尔传来几声狼嚎，一股淡淡的消毒水的味道钻入你的鼻子。">>
+        	<<case "elk">><<set $cummilkbus to "麋鹿街">><<set $cummilkbusdesc to "你闻到周围有一股机油和垃圾混合的味道，同时听到周围的建筑里传来机器运转的声音。">>
+		<</switch>>
+	<</if>>
+<</widget>>
+
+<<widget cummilkwhitneywalkevent>>
+TODO 各个场景下的随机事件
 <</widget>>

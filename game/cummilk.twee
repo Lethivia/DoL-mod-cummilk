@@ -211,14 +211,14 @@
 <!-- -------------WHITNEY------------- -->
 :: Whitney Cummilk Sex
 <<if $sexstart is 1>>
+	<<He>>将你的TODO
 	<<set $sexstart to 0>>
 	<<consensual>>
 	<<set $consensual to 1>>
 	<<promiscuity1>>
 	<<neutral 1>>
 	<<maninit>>
-	<<set $enemytrust += 100>><<set $enemyhealth to 600>><<set $enemyhealthmax to 600>>
-    <<cummilksexcheck>>
+    <<cummilksexcheckother>>
 <</if>>
 
 <<effects>>
@@ -229,7 +229,113 @@
 <<actionsman>>
 
 <<if _combatend>>
-	<span id="next"><<link [[继续|Eden Cummilk Sex Finish]]>><</link>></span><<nexttext>>
+	<span id="next"><<link [[继续|Whitney Cummilk Sex Finish]]>><</link>></span><<nexttext>>
 <<else>>
-	<span id="next"><<link [[继续|Eden Cummilk Sex]]>><</link>></span><<nexttext>>
+	<span id="next"><<link [[继续|Whitney Cummilk Sex]]>><</link>></span><<nexttext>>
 <</if>>
+
+:: Eden Cummilk Sex Finish
+<<effects>>
+
+战斗结束描述TODO
+<!--<if $enemyarousal gte $enemyarousalmax>>
+<</if>-->
+<br><br>
+
+<<clotheson>>
+<<endcombat>>
+<<whitneyoptions>>
+
+:: Whitney Cummilk Dom
+<<if $cummilkwhitneymoredom>>
+	惠特尼听后开怀大笑，"没想到你还挺上道啊，真是一只乖狗狗"，<<he>>边摸着你的头发边说到。
+	<br><br>
+	<<unset $cummilkwhitneymoredom>>
+<</if>>
+<!--眼罩、口塞-->
+<<facewear 6>>
+<!--束手-->
+<<bind>>
+<!--项圈-->
+<<leash 21>>
+/*TODO原有服装送回衣柜?*/
+<<updatesidebarimg>>
+
+<<he>>拿出了眼罩和口塞，你乖乖地将它们戴上，现在你只能发出一些呜咽的声音，而且无法看到外面的东西，<<if $whitneyromance is 1>>但你相信惠特尼会给你一次奇妙的经历<<else>>你不知道惠特尼将对你做什么<</if>>。
+<br>
+你听到一些哗啦的声响，同时感到手腕被扭到背后束缚住了，接着你感觉脖子也被什么拴住了。惠特尼的声音响起："走吧狗狗，咱们今天还没遛弯呢"，紧接着这道声音出现在你耳边轻声说到，"放心吧，没人人得出你，他们只会看到一条乖狗狗"。<<if $promiscuity lt 75>>你"汪"了一声以示回应，惠特尼拍拍你的屁股，"真乖"。<</if>>
+<br><br>
+你感到脖子上传来一股力量，你跟着向前走去。
+<br><br>
+<<link [[继续| Whitney Cummilk Dom Walk]]>><</link>>
+
+:: Whitney Cummilk Dom Walk
+<<if $cummilkwhitneywalkindex is undefined>>
+	/*1公园 2海边 3住宅小巷 4丰收街酒吧 5森林*/
+	<<switch random(1,5)>>
+	<<case 1>> <<set _end to 10>>
+	<<case 2>> <<set _end to 19>>
+	<<case 3>> <<set _end to 6>>
+	<<case 4>> <<set _end to 13>>
+	<<case 5>> <<set _end to 18>>
+	<</switch>>
+
+	<<set $cummilkwhitneywalkindex to 0>>
+	<<set $cummilkknowbus to true>>
+
+	<<set _start to >>
+	<<set _minstep to random(3,8)>>
+	<<set $cummilkwhitneywalkpath to findPathCummilk(_start, _end, _minstep)>>
+<</if>>
+
+<<if $cummilkknowbus>>
+	<<unset $cummilkknowbus>>
+	你知道自己正身处<span class='lblue'>$cummilkbus</span>。
+<<else>>
+	不断地走动让你迷失了方向，你不知道自己身处哪里。
+<</if>>
+$cummilkbusdesc
+<br><br><<unset $cummilkbusdesc>>
+
+<<cummilkwhitneywalkevent>>
+
+TODO
+<br><br>
+<<link [[继续|Whitney Cummilk Dom Sex]]>><<set $sexstart to 1>><<set $cummilksex to true>><<npc Whitney>><<person1>><</link>>
+
+:: Whitney Cummilk Dom Sex
+<<if $sexstart is 1>>
+	<<He>>将你的TODO
+	<<set $sexstart to 0>>
+	<<consensual>>
+	<<set $consensual to 1>>
+	<<promiscuity1>>
+	<<neutral 1>>
+	<<maninit>>
+    <<cummilksexcheckother>>
+<</if>>
+
+<<effects>>
+<<effectsman>>
+<<man>>
+<<stateman>>
+<br><br>
+<<actionsman>>
+
+<<if _combatend>>
+	<span id="next"><<link [[继续|Whitney Cummilk Dom Sex Finish]]>><</link>></span><<nexttext>>
+<<else>>
+	<span id="next"><<link [[继续|Whitney Cummilk Dom Sex]]>><</link>></span><<nexttext>>
+<</if>>
+
+:: Eden Cummilk Dom Sex Finish
+<<effects>>
+
+战斗结束描述TODO
+<!--<if $enemyarousal gte $enemyarousalmax>>
+<</if>-->
+<br><br>
+
+<<clotheson>>
+<<endcombat>>
+<<whitneyoptions>>
