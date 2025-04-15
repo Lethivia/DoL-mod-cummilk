@@ -188,8 +188,32 @@
 	<</if>>
 <</widget>>
 
+<<widget cummilksetbus>>
+<<switch $cummilkwhitneywalkpath[$cummilkwhitneywalkindex]>>
+<<case  1>><<set $outside to 1>><<set $bus to "barb">><<set $location to "town">>
+<<case  2>><<set $outside to 1>><<set $bus to "cliff">><<set $location to "town">>
+<<case  3>><<set $outside to 1>><<set $bus to "starfish">><<set $location to "town">>
+<<case  4>><<set $outside to 1>><<set $bus to "mer">><<set $location to "town">>
+<<case  5>><<set $outside to 1>><<set $bus to "domus">><<set $location to "town">>
+<<case  6>><<set $outside to 1>><<set $bus to "residential">><<set $location to "town">>
+<<case  7>><<set $outside to 1>><<set $bus to "connudatus">><<set $location to "town">>
+<<case  8>><<set $outside to 1>><<set $bus to "commercial">><<set $location to "town">>
+<<case  9>><<set $outside to 1>><<set $bus to "high">><<set $location to "town">>
+<<case 10>><<set $outside to 1>><<set $bus to "park">><<set $location to "town">>
+<<case 11>><<set $outside to 1>><<set $bus to "oxford">><<set $location to "town">>
+<<case 12>><<set $outside to 1>><<set $bus to "industrial">><<set $location to "town">>
+<<case 13>><<set $outside to 1>><<set $bus to "harvest">><<set $location to "town">>
+<<case 14>><<set $outside to 1>><<set $bus to "danube">><<set $location to "town">>
+<<case 15>><<set $outside to 1>><<set $bus to "wolf">><<set $location to "town">>
+<<case 16>><<set $outside to 1>><<set $bus to "nightingale">><<set $location to "town">>
+<<case 17>><<set $outside to 1>><<set $bus to "elk">><<set $location to "town">>
+<<case 18>><<set $outside to 1>><<set $bus to "wolf">><<set $location to "forest">>
+<<case 19>><<set $outside to 1>><<set $bus to "cliff">><<set $location to "beach">>
+<</switch>>
+
+<</widget>>
+
 <<widget cummilkwhitneywalkevent>>
-TODO 各个场景下的随机事件
 <<endevent>><<npc Whitney>><<person1>>
 <<switch random(1,5)>>
 <<case 1>>
@@ -197,64 +221,123 @@ TODO 各个场景下的随机事件
 	你听到<<he>>在和其他人交谈着<<print [`什么`,`学校的趣闻`,`酒吧的趣闻`,`荤段子`][random(0,3)]>>，
 	<<switch random(1,3)>>
 	<<case 1>> 你感觉对方的声音有些熟悉，也许是你的同学？
-		<<if $promiscuity lt 75>> 但你不在乎，你只想享受这未知的刺激感。
+		<<if $promiscuity gt 75>> 但你不在乎，你只想享受这未知的刺激感。
 		<<else>> 你尽量把头侧过去，希望对方不会认出你。
 		<</if>>
 	<<case 2>> 你感觉对方的声音不太熟悉，
-		<<if $promiscuity lt 75>> 你专注地享受这未知的刺激感。
+		<<if $promiscuity gt 75>> 你专注地享受这未知的刺激感。
 		<<else>> 于是放下心来，静静地站着。
 		<</if>>
 	<<case 3>> 你仔细辨认的对方的声音，想象着声音主人的样貌。
 	<</switch>>
 <<case 2>>
-	惠特尼离开
+	惠特尼牵着你的绳索走了一段后，突然停下。
+	你感受到绳子从脖子上松开，耳边传来<<he>>逐渐远去的脚步声。
+	<<he>>……离开了吗？
+	你孤零零地站在原地，什么也看不见，什么也做不了。
+	<<switch random(1,3)>>
+	<<case 1>> 你听到<<his>>的声音远远传来：“乖乖等我。”
+	<<case 2>> 一阵沉默，连<<his>>的气息都听不到了，仿佛真的被抛下。
+	<<case 3>> 有陌生的脚步靠近你，你分不清是<<he>>，还是别人。
+	<</switch>>
+	<<switch random(1,2)>>
+	<<case 1>> 你努力挺直身体，怕自己出丑。
+	<<case 2>> 你开始胡思乱想：<<he>>是不是玩腻了你？
+	<</switch>>
+	<<if $promiscuity lt 75>> 一股寒意从脚底蔓延，眼前的黑暗仿佛会吞噬你。
+	<<else>> 紧张中混杂着一丝兴奋，你感受到心跳扑通作响。
+	<</if>>
+	<br>
+	在你等的焦急时惠特尼回来了。
 <<case 3>>
-	远处的声音
+	你听到远处传来杂乱的声音，像是人群、车辆，或某种集会。
+	声音混杂而模糊，无法看见的你只能靠猜测填补画面。
+	<<switch random(1,3)>>
+	<<case 1>> 像是路边摊位的叫卖声，还有讨价还价的声音。
+	<<case 2>> 像是有人在拍视频，口令声此起彼伏，还有掌声。
+	<<case 3>> 像是街头艺人表演，有人呼喊着喝彩，也有人在叫卖。
+	<</switch>>
+	<<switch random(1,2)>>
+	<<case 1>> 你怀疑这些人是否注意到了你。
+	<<case 2>> 你反而更放松了些，觉得自己被淹没在喧闹中。
+	<</switch>>
+	<<if $promiscuity lt 75>> 你拼命分辨方向，试图从声音中找到安全感。
+	<<else>> 你闭上眼感受音流涌动，任凭想象在脑中蔓延。
+	<</if>>
 <<case 4>>
-	if bus	过马路 else 寂静
+	<<if ["barb", "cliff", "starfish", "mer", "domus", "connudatus", "high", "oxford", "harvest", "danube", "wolf", "nightingale", "elk",].includes($bus)>>
+		你感觉脚下地面变得粗糙、干燥，仿佛是柏油马路。
+		<<switch random(1,2)>>
+		<<case 1>> 有车辆从你面前呼啸而过，卷起风声，你下意识地往后缩。
+		<<case 2>> 你听到“嘀嘀”声，是红绿灯的提示音，惠特尼拉了你一把，你才跟着迈步。
+		<</switch>>
+		<<if $promiscuity lt 75>> 你紧张得绷直了身体，怕下一步就被撞上。
+		<<else>> 你完全交由惠特尼牵引，享受着失控的刺激。
+		<</if>>
+	<<else>>
+		周围寂静得出奇，风声拂过耳边，像是荒无人烟的巷道。
+		你随着惠特尼的脚步慢慢走着，感觉时间都凝固了。
+		<<switch random(1,2)>>
+		<<case 1>> 你怀疑自己是不是被带到了某个私密场所。
+		<<case 2>> 你想着惠特尼会不会将你抛弃在这里。
+		<</switch>>
+		<<if $promiscuity lt 75>> 你在寂静中变得焦躁，四肢微微颤抖。
+		<<else>> 你仿佛融入了这片安静，感受自己的呼吸与心跳。
+		<</if>>
+	<</if>>
 <<case 5>>
-	路人骚扰
+	你感受到有人靠近，脚步停在你面前，陌生的气息扑面而来，你却无法后退。
+	<<switch random(1,3)>>
+	<<case 1>> “喂，这个<<girl>>不会是真的瞎了吧？”一个男声低声调侃。
+	<<case 2>> 有人用手指碰了碰你脸颊，你吓得全身一震。
+	<<case 3>> “这是谁家的小宠物跑出来了？”带着酒气的笑声。
+	<</switch>>
+	<<switch random(1,2)>>
+	<<case 1>> 你听到惠特尼轻咳一声，那些声音迅速远离。
+	<<case 2>> 没有人制止，你只能自己僵直地站着不动。
+	<</switch>>
+	<<if $promiscuity lt 75>> 你害怕极了，心跳几乎要跳出喉咙。
+	<<else>> 你羞耻却不想挣扎，只想快点结束这段“审判”。
+	<</if>>
 <<case 6>>
-	你听到一个稚嫩的声音问：“妈妈，那个人怎么不说话啊？”
-	成熟的声音慌张地小声回应，把孩子拉走。
+	你听到一个稚嫩的声音问：“妈妈，那个人怎么像条狗一样啊？”，成熟的声音慌张地小声回应。
 	<<switch random(1,2)>>
 	<<case 1>> 你紧紧咬住口塞，脸颊发烫。
-	<<case 2>> 你低下头，试图隐藏自己赤裸的羞耻。
+	<<case 2>> 你低下头，试图隐藏自己的羞耻。
 	<</switch>>
-	<<if $promiscuity lt 50>> 你指尖发凉，几乎想逃跑。
+	<<if $promiscuity lt 75>> 你指尖发凉，几乎想逃跑。
 	<<else>> 你感到内心深处有一丝异样的快感。
 	<</if>>
 <<case 7>>
-	一阵咖啡的香味飘来，脚步停下，你听到惠特尼和人寒暄的声音。
-	对话中偶尔夹杂着“她真乖”“训练得不错”的话语。
+	脚步停下，你听到惠特尼和人寒暄的声音。
+	对话中偶尔夹杂着“这个<<girl>>真乖”“训练得不错”的话语。
 	<<switch random(1,2)>>
 	<<case 1>> 你在原地绷紧身体，听不出对方是男是女。
 	<<case 2>> 你感受到绳索微微收紧，仿佛是在提醒你展示姿态。
 	<</switch>>
-	<<if $promiscuity lt 60>> 你不安地绷紧肩膀。
+	<<if $promiscuity lt 75>> 你不安地绷紧肩膀。
 	<<else>> 你主动调整站姿，享受着这模糊的羞辱感。
 	<</if>>
 <<case 8>>
 	你听到有人吹了声口哨，随后是低声的笑声和窃窃私语。
 	听不出他们离你有多近，但声音仿佛贴在你耳边。
-	<<if $promiscuity lt 70>> 你缩紧肩膀，感到一股寒意。
+	<<if $promiscuity lt 75>> 你缩紧肩膀，感到一股寒意。
 	<<else>> 你轻轻呼吸，控制身体不自主的颤抖。
 	<</if>>
 <<case 9>>
 	绳子猛地一紧，你被拉着前行，脚步几乎跟不上。
 	衣物摩擦着皮肤，铃铛伴随脚步不安地作响。
 	<<switch random(1,2)>>
-	<<case 1>> 你踉跄几步，手指死死抓紧。
-	<<case 2>> 你强忍着脚底刺痛，默默忍耐。
+	<<case 1>> 你踉跄几步，手不自觉的攥紧。
+	<<case 2>> 你觉得项圈像手一样箍紧你的脖子，你难受的呜咽出声。
 	<</switch>>
-	<<if $promiscuity lt 40>> 你感觉每一步都可能摔倒。
+	<<if $promiscuity lt 75>> 你感觉每一步都可能摔倒。
 	<<else>> 你闭着眼感受失重感，像在飘。
 	<</if>>
 <<case 10>>
-	一阵低吼声突然在你身边响起，狗的喘息声近在咫尺。
-	主人的脚步匆匆，带着狗远离，但你腿却软了半分。
-	<<if $promiscuity lt 50>> 你下意识地后退了一步。
-	<<else>> 你强迫自己站住，感受那紧张后的空虚。
+	一阵低吼声突然在你身边响起，狗的喘息声近在咫尺，呵斥声随之而起，但你腿软了半分。
+	<<if $promiscuity lt 75>> 你下意识地后退了一步。
+	<<else>> 你强迫自己站住，享受着紧张的感觉。
 	<</if>>
 <<case 11>>
 	你隐约听到快门声，“咔哒”，不止一声。
@@ -264,113 +347,120 @@ TODO 各个场景下的随机事件
 	<<case 2>> 你微微张开嘴唇，试图掩盖呼吸声。
 	<<case 3>> 你心跳加速，似乎在期待这些画面被永久保存。
 	<</switch>>
-	<<if $promiscuity lt 60>> 你慌乱地试图闭紧嘴，口塞却让你无能为力。
+	<<if $promiscuity lt 75>> 你慌乱地试图闭紧嘴，口塞却让你无能为力。
 	<<else>> 你身体轻轻颤抖，仿佛那声音也能让你兴奋。
 	<</if>>
 <<case 12>>
-	一阵风吹来，你感觉额前湿润，是雨？还是冷汗？
-	惠特尼没有停下，雨水沿着你的脸颊滑落。
-	<<if $promiscuity lt 50>> 你微微发抖，感到寒意渗入背脊。
-	<<else>> 你感受每一滴雨点的触碰，仿佛被世界亲吻。
+	你察觉到周围的环境突然变了，空气中带着一股说不清的味道。
+
+	<<switch random(1,3)>>
+	<<case 1>> 有人经过你身边，动作很快，你几乎屏住呼吸，试图判断对方有没有停下来看你。
+	<<case 2>> 地面忽然变得粘滑，像是有人洒了饮料，你被牵着小心地绕开。
+	<<case 3>> 前方传来吵架声，一男一女在互相指责，你分不清是否在指你。每一句争吵都像是指向你赤裸的状态，你低下头，不敢动弹。
+	<</switch>>
+	
+	<<if $promiscuity lt 75>> 黑暗中，你的想象让一切都变得更可怕。
+	<<else>> 模糊的感官反而让你更兴奋，你紧张地咽了下口水。
 	<</if>>
 <<case 13>>
-	地上似乎掉落了什么硬币，你听到叮的一声。
-	有人小声说：“投币表演吗？真不错。”
+	地上似乎掉落了硬币，你听到叮的一声。
+	有人小声说：“投币表演吗？翘起尾巴给我看看。”
 	<<switch random(1,2)>>
 	<<case 1>> 你羞愧得几乎跪下。
 	<<case 2>> 你微微发颤，却硬生生撑住姿态。
 	<</switch>>
-	<<if $promiscuity lt 40>> 你咬紧牙关，脸贴近胸口。
-	<<else>> 你笔直地站好，不去捡，像在接受这一切。
+	<<if $promiscuity lt 75>> 你羞耻地想要紧咬牙关，却被口塞阻挡。
+	<<else>> 你欣喜于自己的受欢迎程度。
 	<</if>>
 <<case 14>>
-	地面轻轻一滑，你身体前倾，被拉住才没有摔倒。
-	惠特尼没说话，只是轻轻拍了拍你的后背。
-	<<if $promiscuity lt 50>> 你紧张到手脚冰冷。
+	地面轻轻一滑，你身体后倾，被惠特尼拉住项圈才没有摔倒。
+	惠特尼没说话，只是摸了你屁股一把。
+	<<if $promiscuity lt 75>> 你紧张到手脚冰冷。
 	<<else>> 你呼出一口气，仿佛刚被拥抱了一下。
 	<</if>>
 <<case 15>>
 	两人的脚步声从你耳边擦过，带着笑意与赞赏的语调。
-	“她站得真乖啊……像只听话的小狗。”
+	“<<he>>站得真乖啊……像只听话的小狗。”
 	<<switch random(1,2)>>
 	<<case 1>> 你下意识抬起头，感到热意冲上耳根。
 	<<case 2>> 你努力屏住呼吸，让自己看起来更乖。
 	<</switch>>
-	<<if $promiscuity lt 60>> 你身体僵直，尽量屏息。
+	<<if $promiscuity lt 75>> 你身体僵直，尽量屏息。
 	<<else>> 你下意识挺直腰背，像在展示自己。
 	<</if>>
 <<case 16>>
-	一阵熟悉的香水味飘过，你脑中猛地闪现一个人的脸。
+	<<set _tmp to [][random(0,)]>>
+	一阵熟悉的味道飘过，你脑中猛地闪现一个人的脸，是_tmp？
 	<<switch random(1,2)>>
-	<<case 1>> 你心跳加快，担心对方真的认出你。
-	<<case 2>> 你咬住口塞，努力不去回想过去。
+	<<case 1>> 你心跳加快，担心真的是_tmp。
+	<<case 2>> 你咬住口塞，加装一旦也不慌张。
 	<</switch>>
-	<<if $promiscuity lt 50>> 你害怕那人就是你认识的人，紧张到手心出汗。
+	<<if $promiscuity lt 75>> 你害怕那人就是_tmp，紧张到手心出汗。
 	<<else>> 你心中一热，忍不住幻想那人正看着你。
 	<</if>>
 <<case 17>>
-	你站着不动，突然听到耳边传来呼吸声，有人靠得很近。
+	你站着不动，突然听到耳边传来一阵热气，有人靠得很近，但没有发出一点声音。
 	空气带着陌生人的气息，你却动弹不得。
-	<<if $promiscuity lt 50>> 你肌肉紧绷，指尖泛白。
-	<<else>> 你悄悄张开嘴，几乎想要回应那靠近的气息。
+	<<if $promiscuity lt 75>> 你肌肉紧绷，指尖泛白。
+	<<else>> 你悄悄张开嘴，想要回应那靠近的气息。
 	<</if>>
 <<case 18>>
-	你听到衣服摩擦的声音，还有几声轻笑。
+	你听到相机的咔嚓音，还有几声轻笑。
 	是自拍？是直播？你无法确认，只能想象。
 	<<switch random(1,3)>>
-	<<case 1>> 你挺直身体，像是被看见的模特。
+	<<case 1>> 你挺直身体，像是模特。
 	<<case 2>> 你内心空荡荡的，不知道该期待什么。
 	<<case 3>> 你努力压制住颤抖，专注地维持姿势。
 	<</switch>>
-	<<if $promiscuity lt 60>> 你站得笔直，不敢动弹。
+	<<if $promiscuity lt 75>> 你站得笔直，不敢动弹。
 	<<else>> 你挺起胸，内心被一种莫名的快感灼烧着。
 	<</if>>
 <<case 19>>
 	你听到皮鞋敲击地面的节奏整齐有力，仿佛是巡逻的步伐。
 	你无法确认对方的身份，只有心跳愈发剧烈。
-	<<if $promiscuity lt 50>> 你闭紧嘴巴，祈祷他们没有注意你。
+	<<if $promiscuity lt 75>> 你闭紧嘴巴，祈祷他们没有注意你。
 	<<else>> 你微微仰头，等待那声音离你更近一些。
 	<</if>>
 <<case 20>>
-	一阵风吹来，裙摆拂过大腿，你浑身一震。
+	一阵风吹来，衣服仿佛被吹开了，你浑身一震。
 	惠特尼没有提醒你整理，只是静静地站着。
 	<<switch random(1,2)>>
 	<<case 1>> 你夹紧腿，祈祷布料没被掀太高。
 	<<case 2>> 你感受着空气流动，仿佛也在抚摸你。
 	<</switch>>
-	<<if $promiscuity lt 50>> 你羞耻地夹紧双腿。
+	<<if $promiscuity lt 75>> 你羞耻地夹紧双腿。
 	<<else>> 你任由风掀起布料，期待更多触感。
 	<</if>>
 <<case 21>>
 	有人压低声音在说话，你只能听到只言片语：
 	<<switch random(1,3)>>
-	<<case 1>> “……她是谁啊……好像是那个……”
-	<<case 2>> “……你看她的绳子，是定做的吗？”
+	<<case 1>> “……这个<<girl>>是谁啊……好像是那个……”
+	<<case 2>> “……你看这项圈，是定做的吗？”
 	<<case 3>> “……我也想试试这种游戏……”
 	<</switch>>
-	<<if $promiscuity lt 60>> 你觉得耳朵都红了，脚趾蜷缩。
+	<<if $promiscuity lt 75>> 你觉得耳朵都红了，脚趾蜷缩。
 	<<else>> 你觉得每句话都像抚摸，甚至有点上瘾。
 	<</if>>
 <<case 22>>
 	你感觉路线熟悉，空气中的味道是来时经过的街口。
-	绕了一圈？你居然没有察觉。
-	<<if $promiscuity lt 40>> 你有点迷失，脚下虚浮。
+	惠特尼在带你绕圈？
+	<<if $promiscuity lt 75>> 你有点迷失，脚下虚浮。
 	<<else>> 你像是在完成一场仪式，心中充满成就感。
 	<</if>>
 <<case 23>>
 	一阵扑鼻的花香传来，你下意识张嘴，却咬到口塞。
-	有人在你前方笑着说：“好乖啊，真想摸摸她。”
+	有人在你前方笑着说：“好乖啊，真想摸摸。”
 	<<switch random(1,2)>>
 	<<case 1>> 你立刻低头不语，双腿微微内扣。
 	<<case 2>> 你心跳加速，几乎期待那触摸真的落下。
 	<</switch>>
-	<<if $promiscuity lt 50>> 你僵硬地站着，不敢动。
+	<<if $promiscuity lt 75>> 你僵硬地站着，不敢动。
 	<<else>> 你轻轻歪头，像是在邀请触碰。
 	<</if>>
 <<case 24>>
 	柔软的什么东西轻触你的腿，是动物？
 	一声“喵”传来，它绕着你转了一圈。
-	<<if $promiscuity lt 50>> 你忍住尖叫，努力不动。
+	<<if $promiscuity lt 75>> 你忍住尖叫，努力不动。
 	<<else>> 你缓缓跪下，默默接受它的好奇。
 	<</if>>
 <<case 25>>
@@ -380,7 +470,7 @@ TODO 各个场景下的随机事件
 	<<case 1>> 你颤抖着吸了口气，拼命保持姿态。
 	<<case 2>> 你几乎快哭了，却不敢动分毫。
 	<</switch>>
-	<<if $promiscuity lt 60>> 你惊恐地收紧身体，想逃。
+	<<if $promiscuity lt 75>> 你惊恐地收紧身体，想要逃避。
 	<<else>> 你纹丝不动，默默承受那未知的羞耻。
 	<</if>>
 <</switch>>

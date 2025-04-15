@@ -293,6 +293,7 @@
 你的眼睛被蒙着，嘴里含着口塞，双手被绑到身后。惠特尼牵着的绳子连在你的项圈上，漫步在这座城市的大街小巷。
 你的听觉和嗅觉似乎更加敏锐了，$cummilkbusdesc
 
+TODO 依照历史课成绩概率知道位置
 <<if $cummilkknowbus>>
 	<<unset $cummilkknowbus>>
 	你知道自己正身处<span class='lblue'>$cummilkbus</span>。
@@ -304,9 +305,12 @@
 
 <<cummilkwhitneywalkevent>>
 
-TODO
+TODO 地点提问
 <br><br>
-<<link [[继续|Whitney Cummilk Dom Walk]]>><<set $cummilkwhitneywalkindex += 1>><</link>>
+<<link [[继续|Whitney Cummilk Dom Walk]]>>
+	<<set $cummilkwhitneywalkindex += 1>>
+	<<cummilksetbus>>
+<</link>>
 
 :: Whitney Cummilk Dom Sex
 <<if $sexstart is 1>>
