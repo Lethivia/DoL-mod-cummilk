@@ -159,7 +159,7 @@
 	<<if $location is "beach">>
 		<<set $cummilkbus to "海滩">><<set $cummilkbusdesc to "你感到一阵阵轻微的风吹来，周围满是嘈杂喧闹的声音，脚下的路也不再平整，柔软的像是沙子。">>
 	<<elseif $location is "forest">>
-		<<set $cummilkbus to "森林">><<set $cummilkbusdesc to "">>
+		<<set $cummilkbus to "森林">><<set $cummilkbusdesc to "你感觉这里比其他地方要冷一些，城市的喧嚣只出现在远方。">>
 	<<else>>
 		<<switch $bus>>
 			<<case "barb">><<set $cummilkbus to "倒钩街">><<set $cummilkbusdesc to "你感到些许轻微的风吹来，周围满是车流的嘈杂，不时有警笛的声音传来。">>
@@ -188,6 +188,7 @@
 	<</if>>
 <</widget>>
 
+
 <<widget cummilksetbus>>
 <<switch $cummilkwhitneywalkpath[$cummilkwhitneywalkindex]>>
 <<case  1>><<set $outside to 1>><<set $bus to "barb">><<set $location to "town">>
@@ -210,7 +211,6 @@
 <<case 18>><<set $outside to 1>><<set $bus to "wolf">><<set $location to "forest">>
 <<case 19>><<set $outside to 1>><<set $bus to "cliff">><<set $location to "beach">>
 <</switch>>
-
 <</widget>>
 
 <<widget cummilkwhitneywalkevent>>

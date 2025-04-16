@@ -126,6 +126,16 @@ function findPathCummilk(start, end, minSteps, extra = 2) {
   dfs([start]);
   return result;
 }
-window.findPathCummilk = findPathCummilk
+window.findPathCummilk = findPathCummilk;
+
+function cummilkGetStreeName(num) {
+  const names = [
+    "", "倒钩街", "峭壁街", "海星街", "梅尔街", "宅邸街", "住宅区小巷",
+    "康达努斯街", "商业街小巷", "商业街", "公园", "牛津街", "工业区小巷",
+    "丰收街", "多瑙河街", "狼街", "南丁格尔街", "麋鹿街", "森林", "海滩"
+  ];
+  return names[num] || "";
+}
+window.cummilkGetStreeName = cummilkGetStreeName;
 
 // console.log("路径:", findPathCummilk(start, end, minSteps));

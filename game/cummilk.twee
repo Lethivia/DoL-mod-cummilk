@@ -263,7 +263,7 @@
 
 <<he>>拿出了眼罩和口塞，你乖乖地将它们戴上，现在你只能发出一些呜咽的声音，而且无法看到外面的东西，<<if $whitneyromance is 1>>但你相信惠特尼会给你一次奇妙的经历<<else>>你不知道惠特尼将对你做什么<</if>>。
 <br>
-你听到一些哗啦的声响，同时感到手腕被扭到背后束缚住了，接着你感觉脖子也被什么拴住了。惠特尼的声音响起："走吧狗狗，咱们今天还没遛弯呢"，紧接着这道声音出现在你耳边轻声说到，"放心吧，没人认得出你，他们只会看到一条乖狗狗"。<<if $promiscuity lt 75>>你"汪"了一声以示回应，惠特尼拍拍你的屁股，"真乖"。<</if>>
+你听到一些哗啦的声响，同时感到手腕被扭到背后束缚住了，接着你感觉脖子也被什么拴住了。惠特尼的声音响起："走吧狗狗，咱们今天还没遛弯呢"，紧接着这道声音出现在你耳边轻声说到，"放心吧，没人认得出你，他们只会看到一条乖狗狗"。<<if $promiscuity gte 75>>你"汪"了一声以示回应，惠特尼拍拍你的屁股，"真乖"。<</if>>
 <br><br>
 你感到脖子上传来一股力量，你跟着向前走去。
 <br><br>
@@ -271,14 +271,15 @@
 
 :: Whitney Cummilk Dom Walk
 <<if $cummilkwhitneywalkindex is undefined>>
+	<<set _end to random(1,19)>>
 	/*1公园 2海边 3住宅小巷 4丰收街酒吧 5森林*/
-	<<switch random(1,5)>>
+	<!--<switch random(1,5)>>
 	<<case 1>> <<set _end to 10>>
 	<<case 2>> <<set _end to 19>>
 	<<case 3>> <<set _end to 6>>
 	<<case 4>> <<set _end to 13>>
 	<<case 5>> <<set _end to 18>>
-	<</switch>>
+	<</switch>-->
 
 	<<set $cummilkwhitneywalkindex to 0>>
 	<<set $cummilkknowbus to true>>
@@ -290,10 +291,21 @@
 
 <<cummilkgetbus>>
 
-你的眼睛被蒙着，嘴里含着口塞，双手被绑到身后。惠特尼牵着的绳子连在你的项圈上，漫步在这座城市的大街小巷。
-你的听觉和嗅觉似乎更加敏锐了，$cummilkbusdesc
+<<switch random(1,5)>>
+<<case 1>> 你的眼睛被蒙着，嘴里含着口塞，双手被绑到身后。惠特尼牵着的绳子连在你的项圈上，漫步在这座城市的大街小巷。你的听觉和嗅觉似乎更加敏锐了。
+<<case 2>> 你被蒙住眼睛，口中塞着东西，双手在背后被束缚。脖子上的绳子牵引着你前进，你能感觉到鞋底踩在地面上的每一个步伐。
+<<case 3>> 你什么也看不见，嘴也无法开口，双手被绑着动不了。你感觉惠特尼在前方牵着你，四周的声音变得格外清楚。
+<<case 4>> 你被戴上了眼罩和口塞，双手被反绑着，脖子上的绳子把你与惠特尼连接在一起。
+<<case 5>> 你无法看见前方，也无法说话，双手被绑在身后。你顺着惠特尼牵引的绳子缓慢行走，耳边传来周围的动静。
+<</switch>>
+$cummilkbusdesc
 
-TODO 依照历史课成绩概率知道位置
+
+<br>
+<<if not $cummilkknowbus and $historytrait gte random(3,7)>>
+	你的历史知识让你意识到这是哪里，
+	<<set cummilkknowbus to true>>
+<</if>>
 <<if $cummilkknowbus>>
 	<<unset $cummilkknowbus>>
 	你知道自己正身处<span class='lblue'>$cummilkbus</span>。
@@ -304,13 +316,66 @@ TODO 依照历史课成绩概率知道位置
 <<unset $cummilkbusdesc>>
 
 <<cummilkwhitneywalkevent>>
-
-TODO 地点提问
 <br><br>
-<<link [[继续|Whitney Cummilk Dom Walk]]>>
-	<<set $cummilkwhitneywalkindex += 1>>
-	<<cummilksetbus>>
-<</link>>
+TODO 加兴奋
+
+<<set $cummilkwhitneywalkindex += 1>>
+<<if $cummilkwhitneywalkindex eq $cummilkwhitneywalkpath.length>>
+	你感觉前方的脚步停了下来，于是你也停了下来，惠特尼的声音响起，"我们到了"，<<if $promiscuity gte 75>>你"汪"了一声，扭了两下屁股，等待新的指令。<<else>>你乖乖站好。<</if>>
+	<br>
+	"来，狗狗，猜猜这是哪里？"，<<he>>轻笑这摸着你的头问到。
+	<br><br>
+	你的回答是:<br>
+    <<domusicon>><<link [[宅邸街|Whitney Cummilk Dom Walk End]]>><<set $cummilktmp to 5>><</link>> <br>
+    <<barbicon>><<link [[倒钩街|Whitney Cummilk Dom Walk End]]>><<set $cummilktmp to 1>><</link>> <br>
+    <<danubeicon>><<link [[多瑙河街|Whitney Cummilk Dom Walk End]]>><<set $cummilktmp to 14>><</link>> <br>
+    <<wolficon>><<link [[狼街|Whitney Cummilk Dom Walk End]]>><<set $cummilktmp to 15>><</link>> <br>
+    <<highicon>><<link [[商业街|Whitney Cummilk Dom Walk End]]>><<set $cummilktmp to 9>><</link>> <br>
+    <<connudatusicon>><<link [[康达努斯街|Whitney Cummilk Dom Walk End]]>><<set $cummilktmp to 7>><</link>> <br>
+    <<clifficon>><<link [[峭壁街|Whitney Cummilk Dom Walk End]]>><<set $cummilktmp to 2>><</link>> <br>
+    <<nightingaleicon>><<link [[南丁格尔街|Whitney Cummilk Dom Walk End]]>><<set $cummilktmp to 16>><</link>> <br>
+    <<starfishicon>><<link [[海星街|Whitney Cummilk Dom Walk End]]>><<set $cummilktmp to 4>><</link>> <br>
+    <<oxfordicon>><<link [[牛津街|Whitney Cummilk Dom Walk End]]>><<set $cummilktmp to 11>><</link>> <br>
+    <<elkicon>><<link [[麋鹿街|Whitney Cummilk Dom Walk End]]>><<set $cummilktmp to 17>><</link>> <br>
+    <<mericon>><<link [[梅尔街|Whitney Cummilk Dom Walk End]]>><<set $cummilktmp to 4>><</link>> <br>
+    <<harvesticon>><<link [[丰收街|Whitney Cummilk Dom Walk End]]>><<set $cummilktmp to 13>><</link>> <br>
+    <<parkicon>><<link [[公园|Whitney Cummilk Dom Walk End]]>><<set $cummilktmp to 10>><</link>> <br>
+    <<alleyicon>><<link [[住宅区小巷|Whitney Cummilk Dom Walk End]]>><<set $cummilktmp to 6>><</link>> <br>
+    <<alleyicon>><<link [[商业区小巷|Whitney Cummilk Dom Walk End]]>><<set $cummilktmp to 8>><</link>> <br>
+    <<alleyicon>><<link [[工业区小巷|Whitney Cummilk Dom Walk End]]>><<set $cummilktmp to 12>><</link>> <br>
+    <<beachicon>><<link [[|Whitney Cummilk Dom Walk End]]>><<set $cummilktmp to 19>><</link>> <br>
+    <<foresticon>><<link [[|Whitney Cummilk Dom Walk End]]>><<set $cummilktmp to 18>><</link>> <br>
+<<else>>
+	<<link [[继续 (0:05)|Whitney Cummilk Dom Walk]]>><<pass 5>><<cummilksetbus>><</link>>
+<</if>>
+
+:: Whitney Cummilk Dom Walk End
+TODO 剧情 口塞
+你思考了片刻，将想到的答案说了出来，但嘴里发出的却是"呜..呜"的声音。
+你呜呜的半天，却只听到惠特尼放肆的笑声，你急的差点流出眼泪。
+<br>
+"好了好了，我给你摘下来"，惠特尼说到。你感觉嘴上的阻碍消失了，但眼睛仍然被蒙着。
+<<faceruined>>
+<<facewear 5>>
+<br><br>
+<<set _tmp to cummilkGetStreeName($cummilktmp)>>
+你吞咽了几次口水，又舔了舔有些干裂的嘴唇说到："这里是_tmp"。
+<br>
+<<if $cummilktmp eq $cummilkwhitneywalkpath[$cummilkwhitneywalkindex]>>
+	"Bingo！答对了"，惠特尼重重地拍了你的屁股一下，你被这意想不到的刺激吓得往前一蹦，并发出了"啊"的一声，这让惠特尼又乐了好一阵。
+	<br><br>
+	"来吧，乖狗狗，让我给你些奖励"，说完惠特尼将你的头按了下去，<<he>>全然不在乎现在身处何处。
+	<<if $promiscuity gte 75>>你性奋地发抖。<<else>>你紧张地发抖。<</if>>
+	<br><br>
+	<<link [[继续|Whitney Cummilk Dom Sex]]>><<set $sexstart to 1>><<set $cummilksex to true>><<npc Whitney>><<person1>><</link>>
+<<else>>
+TODO
+<</if>>
+
+<<unset $cummilktmp>>
+<<unset $cummilkwhitneywalkpath>>
+<<unset $cummilkwhitneywalkindex>>
+TODO 恢复服装?
 
 :: Whitney Cummilk Dom Sex
 <<if $sexstart is 1>>
@@ -327,6 +392,8 @@ TODO 地点提问
 <<effects>>
 <<effectsman>>
 <<man>>
+/*观众*/
+<<audience>>
 <<stateman>>
 <br><br>
 <<actionsman>>
