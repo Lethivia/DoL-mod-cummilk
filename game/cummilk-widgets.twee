@@ -138,7 +138,7 @@
 				<br>
 				说完<<he>>向你靠近。
 				<br><br>
-				<<link [[继续|Whitney Cummilk Sex]]>><<set $sexstart to 1>><<set $cummilksex to true>><<npc Whitney>><<person1>><</link>>
+				<<link [[站着不动|Whitney Cummilk Sex]]>><<set $sexstart to 1>><<set $cummilksex to true>><<npc Whitney>><<person1>><</link>>
 				<<link [[说你想被支配|Whitney Cummilk Dom]]>><<set $cummilkwhitneymoredom to true>><</link>>
 			<</if>>
 		<<default>>

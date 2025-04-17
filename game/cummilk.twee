@@ -272,14 +272,6 @@
 :: Whitney Cummilk Dom Walk
 <<if $cummilkwhitneywalkindex is undefined>>
 	<<set _end to random(1,19)>>
-	/*1公园 2海边 3住宅小巷 4丰收街酒吧 5森林*/
-	<!--<switch random(1,5)>>
-	<<case 1>> <<set _end to 10>>
-	<<case 2>> <<set _end to 19>>
-	<<case 3>> <<set _end to 6>>
-	<<case 4>> <<set _end to 13>>
-	<<case 5>> <<set _end to 18>>
-	<</switch>-->
 
 	<<set $cummilkwhitneywalkindex to 0>>
 	<<set $cummilkknowbus to true>>
@@ -361,25 +353,48 @@ TODO 剧情 口塞
 <<set _tmp to cummilkGetStreeName($cummilktmp)>>
 你吞咽了几次口水，又舔了舔有些干裂的嘴唇说到："这里是_tmp"。
 <br>
+
+TODO 恢复服装?
 <<if $cummilktmp eq $cummilkwhitneywalkpath[$cummilkwhitneywalkindex]>>
 	"Bingo！答对了"，惠特尼重重地拍了你的屁股一下，你被这意想不到的刺激吓得往前一蹦，并发出了"啊"的一声，这让惠特尼又乐了好一阵。
 	<br><br>
 	"来吧，乖狗狗，让我给你些奖励"，说完惠特尼将你的头按了下去，<<he>>全然不在乎现在身处何处。
+	<br>
 	<<if $promiscuity gte 75>>你性奋地发抖。<<else>>你紧张地发抖。<</if>>
 	<br><br>
-	<<link [[继续|Whitney Cummilk Dom Sex]]>><<set $sexstart to 1>><<set $cummilksex to true>><<npc Whitney>><<person1>><</link>>
 <<else>>
-TODO
+	"可惜啊，答错了"，惠特尼重重地拍了你的屁股一下，你被这意想不到的刺激吓得往前一蹦，并发出了"啊"的一声，这让惠特尼又乐了好一阵。
+	<br><br>
+	"来吧，笨狗狗，让我给你些惩罚"，说完惠特尼将你的头按了下去，<<he>>全然不在乎现在身处何处。
+	<br>
+	<<if $promiscuity gte 75>>你性奋地发抖。<<else>>你紧张地发抖。<</if>>
+	<br><br>
 <</if>>
 
 <<unset $cummilktmp>>
 <<unset $cummilkwhitneywalkpath>>
 <<unset $cummilkwhitneywalkindex>>
-TODO 恢复服装?
+
+<<link [[继续|Whitney Cummilk Dom Sex]]>><<set $sexstart to 1>><<set $cummilksex to true>><<npc Whitney>><<person1>><</link>>
 
 :: Whitney Cummilk Dom Sex
+<<switch random(1,5)>>
+<<case 1>> 你的眼睛被盖住了，什么也看不见，双手在背后被绑着。
+<<case 2>> 你看不见东西，双手也被反绑着。
+<<case 3>> 你双眼被蒙住，后背的手腕被束缚着。
+<<case 4>> 你什么也看不到，双手被固定在背后。
+<<case 5>> 你的眼睛被蒙着，双手被绑在背后。
+<</switch>>
+<br>
 <<if $sexstart is 1>>
-	<<He>>将你的TODO
+	惠特尼将你的头按了下去，
+	<<set _target to $NPCList[0]>>
+	<<switch _target.gender>>
+		<<case "h" "m">> 你感觉嘴边是又热又硬的美味。
+		<<case "f">> 你感觉嘴边是又热又软的美味。
+	<</switch>>
+	<<if $promiscuity gte 75>>你知道那是什么。<<else>>你猜到了那是什么。<</if>>
+	<br>
 	<<set $sexstart to 0>>
 	<<consensual>>
 	<<set $consensual to 1>>
@@ -388,6 +403,14 @@ TODO 恢复服装?
 	<<maninit>>
     <<cummilksexcheckother>>
 <</if>>
+<<switch random(1,5)>>
+<<case 1>> 你听到周围传来说话声，像是有别人正在看着你。
+<<case 2>> 你能感觉到有人在附近活动，有几道声音交谈着。
+<<case 3>> 有人在附近走动，低声交流着。
+<<case 4>> 你听见不止一人的声音在四周徘徊。
+<<case 5>> 周围传来的声音表明，似乎还有其他人在围观。
+<</switch>>
+<br><br>
 
 <<effects>>
 <<effectsman>>
@@ -404,14 +427,29 @@ TODO 恢复服装?
 	<span id="next"><<link [[继续|Whitney Cummilk Dom Sex]]>><</link>></span><<nexttext>>
 <</if>>
 
-:: Eden Cummilk Dom Sex Finish
+:: Whitney Cummilk Dom Sex Finish
 <<effects>>
-
-战斗结束描述TODO
-<!--<if $enemyarousal gte $enemyarousalmax>>
-<</if>-->
-<br><br>
-
 <<clotheson>>
 <<endcombat>>
-<<whitneyoptions>>
+
+惠特尼满足的呻吟着，<<he>>抚摸着你的头说到,"乖狗狗，真棒"。
+说着，<<he>>开始动手解除你的束缚。
+<br><br>
+<<link [[继续|Whitney Cummilk Dom Sex Finish2]]>><</link>>
+<<link [[请求保留束缚|Whitney Cummilk Dom Sex Finish3]]>><</link>>
+
+:: Whitney Cummilk Dom Sex Finish2
+<<faceruined>>
+<<handsruined>>
+惠特尼将将你上身的束缚去掉，你感觉轻松了不少。
+<br>
+"今天玩儿的很开心，下次再来找我"，<<he>>说完头也不回的走了。
+<br><br>
+TODO jump bus passage
+
+:: Whitney Cummilk Dom Sex Finish3
+惠特尼的声音有些惊讶，"没想到啊。既然你这么说了，我当然要满足你。"
+
+TODO jump
+
+TODO 各种属性状态处理
