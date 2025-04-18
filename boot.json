@@ -1,9 +1,11 @@
 {
   "name": "cummilk",
-  "version": "5.3.7.5",
+  "version": "5.3.7.6",
   "styleFileList": [],
   "scriptFileList_inject_early": [],
-  "scriptFileList": [],
+  "scriptFileList": [
+        "game/cummilk-findpath.js"
+    ],
   "tweeFileList": [
 		"game/cummilk-widgets.twee",
 		"game/cummilk.twee"
@@ -114,6 +116,78 @@
                     "passage": "Eden Gifts Steak Nothing",
                     "findString": "<<if $bus is \"edenclearing\">>",
                     "replace": "<<cummilkgifteden>>\n<<if $bus is \"edenclearing\">>"
+                },
+                {
+                    "passage": "Whitney Gifts",
+                    "findString": "<<whitneyoptions>>",
+                    "replace": "<<cummilkgiftwhitney>><<if $cummilkkeepwhitneyoptions>><<unset $cummilkkeepwhitneyoptions>>\n<<whitneyoptions>>\n<</if>>",
+                    "all": true
+                },
+                {
+                    "passage": "Whitney Gifts Pizza Eat",
+                    "findString": "<<whitneyoptions>>",
+                    "replace": "<<cummilkgiftwhitney>><<if $cummilkkeepwhitneyoptions>><<unset $cummilkkeepwhitneyoptions>>\n<<whitneyoptions>>\n<</if>>",
+                    "all": true
+                },
+                {
+                    "passage": "Whitney Gifts Vindaloo Eat",
+                    "findString": "<<whitneyoptions>>",
+                    "replace": "<<cummilkgiftwhitney>><<if $cummilkkeepwhitneyoptions>><<unset $cummilkkeepwhitneyoptions>>\n<<whitneyoptions>>\n<</if>>",
+                    "all": true
+                },
+                {
+                    "passage": "Whitney Gifts Vindaloo Swallow",
+                    "findString": "<<whitneyoptions>>",
+                    "replace": "<<cummilkgiftwhitney>><<if $cummilkkeepwhitneyoptions>><<unset $cummilkkeepwhitneyoptions>>\n<<whitneyoptions>>\n<</if>>",
+                    "all": true
+                },
+                {
+                    "passage": "Whitney Gifts Vindaloo Spit",
+                    "findString": "<<whitneyoptions>>",
+                    "replace": "<<cummilkgiftwhitney>><<if $cummilkkeepwhitneyoptions>><<unset $cummilkkeepwhitneyoptions>>\n<<whitneyoptions>>\n<</if>>",
+                    "all": true
+                },
+                {
+                    "passage": "Whitney Gifts Vindaloo Refuse",
+                    "findString": "<<whitneyoptions>>",
+                    "replace": "<<cummilkgiftwhitney>><<if $cummilkkeepwhitneyoptions>><<unset $cummilkkeepwhitneyoptions>>\n<<whitneyoptions>>\n<</if>>",
+                    "all": true
+                },
+                {
+                    "passage": "Whitney Gifts Flapjack Refuse",
+                    "findString": "<<whitneyoptions>>",
+                    "replace": "<<cummilkgiftwhitney>><<if $cummilkkeepwhitneyoptions>><<unset $cummilkkeepwhitneyoptions>>\n<<whitneyoptions>>\n<</if>>",
+                    "all": true
+                },
+                {
+                    "passage": "Whitney Gifts Flapjack Nibble",
+                    "findString": "<<whitneyoptions>>",
+                    "replace": "<<cummilkgiftwhitney>><<if $cummilkkeepwhitneyoptions>><<unset $cummilkkeepwhitneyoptions>>\n<<whitneyoptions>>\n<</if>>",
+                    "all": true
+                },
+                {
+                    "passage": "Whitney Gifts Flapjack Help",
+                    "findString": "<<whitneyoptions>>",
+                    "replace": "<<cummilkgiftwhitney>><<if $cummilkkeepwhitneyoptions>><<unset $cummilkkeepwhitneyoptions>>\n<<whitneyoptions>>\n<</if>>",
+                    "all": true
+                },
+                {
+                    "passage": "Whitney Gifts Flapjack Help",
+                    "findString": "<<whitneyoptions>>",
+                    "replace": "<<cummilkgiftwhitney>><<if $cummilkkeepwhitneyoptions>><<unset $cummilkkeepwhitneyoptions>>\n<<whitneyoptions>>\n<</if>>",
+                    "all": true
+                },
+                {
+                    "passage": "Whitney Gifts Flapjack Bite",
+                    "findString": "<<whitneyoptions>>",
+                    "replace": "<<cummilkgiftwhitney>><<if $cummilkkeepwhitneyoptions>><<unset $cummilkkeepwhitneyoptions>>\n<<whitneyoptions>>\n<</if>>",
+                    "all": true
+                },
+                {
+                    "passage": "Whitney Gifts Flapjack Scoff",
+                    "findString": "<<whitneyoptions>>",
+                    "replace": "<<cummilkgiftwhitney>><<if $cummilkkeepwhitneyoptions>><<unset $cummilkkeepwhitneyoptions>>\n<<whitneyoptions>>\n<</if>>",
+                    "all": true
                 }
       ]
     }

@@ -211,7 +211,12 @@
 <!-- -------------WHITNEY------------- -->
 :: Whitney Cummilk Sex
 <<if $sexstart is 1>>
-	<<He>>将你的TODO
+	惠特尼将你的头按了下去，
+	<<switch $NPCList[0].gender>>
+		<<case "h" "m">> 你的嘴边是<<he>>又热又硬的肉棒。
+		<<case "f">> 你的嘴边是<<he>>又热又软的胸部。
+	<</switch>>
+	<br>
 	<<set $sexstart to 0>>
 	<<consensual>>
 	<<set $consensual to 1>>
@@ -224,6 +229,7 @@
 <<effects>>
 <<effectsman>>
 <<man>>
+<<audience>>
 <<stateman>>
 <br><br>
 <<actionsman>>
@@ -237,31 +243,35 @@
 :: Eden Cummilk Sex Finish
 <<effects>>
 
-战斗结束描述TODO
-<!--<if $enemyarousal gte $enemyarousalmax>>
-<</if>-->
+惠特尼满足的呻吟着，"哦，真棒"。
+<br>
+"收拾好久快点走吧，这里的人可不介意玩别人剩下的东西"，<<he>>说完又狠狠拍了你的屁股一下，悠然离开了。
 <br><br>
 
 <<clotheson>>
 <<endcombat>>
-<<whitneyoptions>>
+<<destination>>
 
 :: Whitney Cummilk Dom
 <<if $cummilkwhitneymoredom>>
-	惠特尼听后开怀大笑，"没想到你还挺上道啊，真是一只乖狗狗"，<<he>>边摸着你的头发边说到。
+	惠特尼听后开怀大笑，"没想到你还挺上道啊，真是一只贱狗"，<<he>>捏了你的屁股一把并说到。
+	<<gggdom>><<npcincr Whitney dom 4>>
 	<br><br>
 	<<unset $cummilkwhitneymoredom>>
 <</if>>
+<<set $worn.face.type.push("broken")>>
+<<set $worn.neck.type.push("broken")>>
+<<faceruined>>
+<<neckruined>>
 <!--眼罩、口塞-->
 <<facewear 6>>
 <!--束手-->
 <<bind>>
 <!--项圈-->
 <<leash 21>>
-/*TODO原有服装送回衣柜?*/
 <<updatesidebarimg>>
 
-<<he>>拿出了眼罩和口塞，你乖乖地将它们戴上，现在你只能发出一些呜咽的声音，而且无法看到外面的东西，<<if $whitneyromance is 1>>但你相信惠特尼会给你一次奇妙的经历<<else>>你不知道惠特尼将对你做什么<</if>>。
+<<he Whitney>>拿出了眼罩和口塞，你乖乖地将它们戴上，现在你只能发出一些呜咽的声音，而且无法看到外面的东西，<<if $whitneyromance is 1>>但你相信惠特尼会给你一次奇妙的经历<<else>>你不知道惠特尼将对你做什么<</if>>。
 <br>
 你听到一些哗啦的声响，同时感到手腕被扭到背后束缚住了，接着你感觉脖子也被什么拴住了。惠特尼的声音响起："走吧狗狗，咱们今天还没遛弯呢"，紧接着这道声音出现在你耳边轻声说到，"放心吧，没人认得出你，他们只会看到一条乖狗狗"。<<if $promiscuity gte 75>>你"汪"了一声以示回应，惠特尼拍拍你的屁股，"真乖"。<</if>>
 <br><br>
@@ -270,18 +280,18 @@
 <<link [[继续| Whitney Cummilk Dom Walk]]>><</link>>
 
 :: Whitney Cummilk Dom Walk
+<<cummilkgetbus>>
+
 <<if $cummilkwhitneywalkindex is undefined>>
+	<<set _start to $cummilkbusindex>>
 	<<set _end to random(1,19)>>
 
 	<<set $cummilkwhitneywalkindex to 0>>
 	<<set $cummilkknowbus to true>>
 
-	<<set _start to >>
 	<<set _minstep to random(3,8)>>
 	<<set $cummilkwhitneywalkpath to findPathCummilk(_start, _end, _minstep)>>
 <</if>>
-
-<<cummilkgetbus>>
 
 <<switch random(1,5)>>
 <<case 1>> 你的眼睛被蒙着，嘴里含着口塞，双手被绑到身后。惠特尼牵着的绳子连在你的项圈上，漫步在这座城市的大街小巷。你的听觉和嗅觉似乎更加敏锐了。
@@ -296,7 +306,7 @@ $cummilkbusdesc
 <br>
 <<if not $cummilkknowbus and $historytrait gte random(3,7)>>
 	你的历史知识让你意识到这是哪里，
-	<<set cummilkknowbus to true>>
+	<<set $cummilkknowbus to true>>
 <</if>>
 <<if $cummilkknowbus>>
 	<<unset $cummilkknowbus>>
@@ -308,8 +318,18 @@ $cummilkbusdesc
 <<unset $cummilkbusdesc>>
 
 <<cummilkwhitneywalkevent>>
+<<set _tmp to random(5,15)*100>>
+<<ggarousal>><<arousal _tmp>>
+<<if $arousal gte $arousalmax>>
+	<<orgasm>>
+	<<switch random(1,3)>>
+	<<case 1>> 你听到惠特尼的笑声，"随地小便可不是好习惯"。
+	<<case 2>> 但谁也没发现你的异常，一些淫液顺着你的腿流到了地上。
+	<<case 3>> 你听到了周围人的小声议论。
+	<</switch>>
+<</if>>
+
 <br><br>
-TODO 加兴奋
 
 <<set $cummilkwhitneywalkindex += 1>>
 <<if $cummilkwhitneywalkindex eq $cummilkwhitneywalkpath.length>>
@@ -342,11 +362,11 @@ TODO 加兴奋
 <</if>>
 
 :: Whitney Cummilk Dom Walk End
-TODO 剧情 口塞
 你思考了片刻，将想到的答案说了出来，但嘴里发出的却是"呜..呜"的声音。
 你呜呜的半天，却只听到惠特尼放肆的笑声，你急的差点流出眼泪。
 <br>
 "好了好了，我给你摘下来"，惠特尼说到。你感觉嘴上的阻碍消失了，但眼睛仍然被蒙着。
+<<set $worn.face.type.push("broken")>>
 <<faceruined>>
 <<facewear 5>>
 <br><br>
@@ -354,8 +374,7 @@ TODO 剧情 口塞
 你吞咽了几次口水，又舔了舔有些干裂的嘴唇说到："这里是_tmp"。
 <br>
 
-TODO 恢复服装?
-<<if $cummilktmp eq $cummilkwhitneywalkpath[$cummilkwhitneywalkindex]>>
+<<if $cummilktmp eq $cummilkwhitneywalkpath[$cummilkwhitneywalkindex-1]>>
 	"Bingo！答对了"，惠特尼重重地拍了你的屁股一下，你被这意想不到的刺激吓得往前一蹦，并发出了"啊"的一声，这让惠特尼又乐了好一阵。
 	<br><br>
 	"来吧，乖狗狗，让我给你些奖励"，说完惠特尼将你的头按了下去，<<he>>全然不在乎现在身处何处。
@@ -374,6 +393,9 @@ TODO 恢复服装?
 <<unset $cummilktmp>>
 <<unset $cummilkwhitneywalkpath>>
 <<unset $cummilkwhitneywalkindex>>
+<<unset $cummilkbus>>
+<<unset $cummilkbusdesc>>
+<<unset $cummilkbusindex>>
 
 <<link [[继续|Whitney Cummilk Dom Sex]]>><<set $sexstart to 1>><<set $cummilksex to true>><<npc Whitney>><<person1>><</link>>
 
@@ -388,8 +410,7 @@ TODO 恢复服装?
 <br>
 <<if $sexstart is 1>>
 	惠特尼将你的头按了下去，
-	<<set _target to $NPCList[0]>>
-	<<switch _target.gender>>
+	<<switch $NPCList[0].gender>>
 		<<case "h" "m">> 你感觉嘴边是又热又硬的美味。
 		<<case "f">> 你感觉嘴边是又热又软的美味。
 	<</switch>>
@@ -432,24 +453,31 @@ TODO 恢复服装?
 <<clotheson>>
 <<endcombat>>
 
-惠特尼满足的呻吟着，<<he>>抚摸着你的头说到,"乖狗狗，真棒"。
-说着，<<he>>开始动手解除你的束缚。
+惠特尼满足的颤抖着呻吟出声，<<he Whitney>>抚摸着你的头说到,"乖狗狗，真棒"。
+<br>
+惠特尼收拾好自己后开始动手解除你的束缚。
 <br><br>
-<<link [[继续|Whitney Cummilk Dom Sex Finish2]]>><</link>>
+<<link [[继续|Whitney Cummilk Dom Sex Finish2]]>><</link>><br>
 <<link [[请求保留束缚|Whitney Cummilk Dom Sex Finish3]]>><</link>>
 
 :: Whitney Cummilk Dom Sex Finish2
+<<set $worn.face.type.push("broken")>>
+<<set $worn.neck.type.push("broken")>>
 <<faceruined>>
-<<handsruined>>
+<<unbind>>
+<<neckruined>>
 惠特尼将将你上身的束缚去掉，你感觉轻松了不少。
 <br>
 "今天玩儿的很开心，下次再来找我"，<<he>>说完头也不回的走了。
 <br><br>
-TODO jump bus passage
+
+<<destination>>
 
 :: Whitney Cummilk Dom Sex Finish3
 惠特尼的声音有些惊讶，"没想到啊。既然你这么说了，我当然要满足你。"
+<br>
+于是<<he>>并没有解开你身上的束缚，你的眼睛仍然被蒙着，双手依然被绑在背后，脚步声越来越远。
+"祝你好运"，远处传来惠特尼断断续续的声音。
+<br><br>
 
-TODO jump
-
-TODO 各种属性状态处理
+<<destinationbondage>>

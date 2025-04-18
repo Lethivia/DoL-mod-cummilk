@@ -60,12 +60,11 @@
 
 <<widget cummilksexcheckother>>
 	<<if $cummilksex>>
-		<<set _target to $NPCList[0]>>
-		<<switch _target.gender>>
+		<<switch $NPCList[0].gender>>
 			<<case "h" "m">>
-				<<set _target.penis to "mouthentrance">><<set $mouthstate to "entrance">><<set $mouthuse to "penis">><<set $mouthtarget to 0>>
+				<<set $NPCList[0].penis to "mouthentrance">><<set $mouthstate to "entrance">><<set $mouthuse to "penis">><<set $mouthtarget to 0>>
 			<<case "f">>
-				<<set _target.chest to "mouthentrance">><<set $mouthstate to "breasts">><<set $mouthuse to "breasts">><<set $mouthtarget to 0>>
+				<<set $NPCList[0].chest to "mouthentrance">><<set $mouthstate to "breasts">><<set $mouthuse to "breasts">><<set $mouthtarget to 0>>
 		<</switch>>
 	<</if>>
 <</widget>>
@@ -136,15 +135,15 @@
 			<<else>>
 				"看来你还在里面放了些<span class='pink'>秘密材料</span>，我一尝就知道那是什么了。"惠特尼勾着一抹若有若无的笑说到，"礼尚往来嘛，现在该你了"。
 				<br>
-				说完<<he>>向你靠近。
+				说完<<he Whitney>>向你靠近。
 				<br><br>
-				<<link [[站着不动|Whitney Cummilk Sex]]>><<set $sexstart to 1>><<set $cummilksex to true>><<npc Whitney>><<person1>><</link>>
+				<<link [[站着不动|Whitney Cummilk Sex]]>><<set $sexstart to 1>><<set $cummilksex to true>><<npc Whitney>><<person1>><</link>><br>
 				<<link [[说你想被支配|Whitney Cummilk Dom]]>><<set $cummilkwhitneymoredom to true>><</link>>
 			<</if>>
 		<<default>>
 			<<set $cummilkkeepwhitneyoptions to true>>
 			<<if _person.love gte 20>>
-				"另外，别以为我不知道你在里面放了什么"，惠特尼勾着一抹若有若无的笑，右手拂过你的下颌，轻托起你的脸，"味道还不错"，<<he>>轻眨眼睛，"有机会让你尝尝我的"。
+				"另外，别以为我不知道你在里面放了什么"，惠特尼勾着一抹若有若无的笑，右手拂过你的下颌，轻托起你的脸，"味道还不错"，<<he Whitney>>轻眨眼睛，"有机会让你尝尝我的"。
 			<<elseif _person.love gte 10>>
 				"另外，别以为我不知道你在里面放了什么"，惠特尼勾着一抹若有若无的笑对你说到，"味道还不错"。
 			<<else>>
@@ -157,33 +156,33 @@
 
 <<widget cummilkgetbus>>
 	<<if $location is "beach">>
-		<<set $cummilkbus to "海滩">><<set $cummilkbusdesc to "你感到一阵阵轻微的风吹来，周围满是嘈杂喧闹的声音，脚下的路也不再平整，柔软的像是沙子。">>
+		<<set $cummilkbus to "海滩">><<set $cummilkbusdesc to "你感到一阵阵轻微的风吹来，周围满是嘈杂喧闹的声音，脚下的路也不再平整，柔软的像是沙子。">><<set $cummilkbusindex to 19>>
 	<<elseif $location is "forest">>
-		<<set $cummilkbus to "森林">><<set $cummilkbusdesc to "你感觉这里比其他地方要冷一些，城市的喧嚣只出现在远方。">>
+		<<set $cummilkbus to "森林">><<set $cummilkbusdesc to "你感觉这里比其他地方要冷一些，城市的喧嚣只出现在远方。">><<set $cummilkbusindex to 18>>
 	<<else>>
 		<<switch $bus>>
-			<<case "barb">><<set $cummilkbus to "倒钩街">><<set $cummilkbusdesc to "你感到些许轻微的风吹来，周围满是车流的嘈杂，不时有警笛的声音传来。">>
-			<<case "clif">> <<set $cummilkbus to "峭壁街">><<set $cummilkbusdesc to "你感到一阵阵轻微的风吹来，同时闻到了若有若无的食物香味。">>
-        	<<case "starfish">><<set $cummilkbus to "海星街">><<set $cummilkbusdesc to "你感到一阵阵轻微的风吹来，周围满是嘈杂喧闹的声音。">>
-        	<<case "mer">><<set $cummilkbus to "梅尔街">><<set $cummilkbusdesc to "你感到些许轻微的风吹来，周围满是吵闹的噪音。">>
-        	<<case "domus">><<set $cummilkbus to "宅邸街">><<set $cummilkbusdesc to "你听到了街道上的车来人往，其中夹杂着一些孩子们的声音。">>
-    		<<case "residential">><<set $cummilkbus to "住宅区小巷">><<set $cummilkbusdesc to "你听到了远处街道上的车来人往，但这里相对僻静，不时有自行车铃声响起。">>
-    		<<case "connudatus">><<set $cummilkbus to "康达努斯街">><<if ["day", "dawn"].includes(Time.dayState)>><<set $cummilkbusdesc to "你听到了各种小贩叫卖的声音。">><<else>><<set $cummilkbusdesc to "你听到了喧嚣的音乐和不断沸腾的人群，还有隐隐飘来的酒气。">><</if>>
-    		<<case "commercial">><<set $cummilkbus to "商业街小巷">><<set $cummilkbusdesc to "你听到了远处街道上的车来人往，但近处却只有你和惠特尼的脚步声。">>
-        	<<case "high">><<set $cummilkbus to "商业街">><<set $cummilkbusdesc to "你听到了街道上的车来人往，但却没有多少语言交流传入你的耳朵。">>
-          	<<case "park">><<set $cummilkbus to "公园">><<set $cummilkbusdesc to "你感觉到这里相对更凉爽一些，不时有快速的脚步声从你旁边经过，你还能听见孩童们在游戏区的嬉戏声。">>
-        	<<case "oxford">><<set $cummilkbus to "牛津街">>
+			<<case "barb">><<set $cummilkbus to "倒钩街">><<set $cummilkbusdesc to "你感到些许轻微的风吹来，周围满是车流的嘈杂，不时有警笛的声音传来。">><<set $cummilkbusindex to 1>>
+			<<case "clif">> <<set $cummilkbus to "峭壁街">><<set $cummilkbusdesc to "你感到一阵阵轻微的风吹来，同时闻到了若有若无的食物香味。">><<set $cummilkbusindex to 2>>
+        	<<case "starfish">><<set $cummilkbus to "海星街">><<set $cummilkbusdesc to "你感到一阵阵轻微的风吹来，周围满是嘈杂喧闹的声音。">><<set $cummilkbusindex to 3>>
+        	<<case "mer">><<set $cummilkbus to "梅尔街">><<set $cummilkbusdesc to "你感到些许轻微的风吹来，周围满是吵闹的噪音。">><<set $cummilkbusindex to 4>>
+        	<<case "domus">><<set $cummilkbus to "宅邸街">><<set $cummilkbusdesc to "你听到了街道上的车来人往，其中夹杂着一些孩子们的声音。">><<set $cummilkbusindex to 5>>
+    		<<case "residential">><<set $cummilkbus to "住宅区小巷">><<set $cummilkbusdesc to "你听到了远处街道上的车来人往，但这里相对僻静，不时有自行车铃声响起。">><<set $cummilkbusindex to 6>>
+    		<<case "connudatus">><<set $cummilkbus to "康达努斯街">><<if ["day", "dawn"].includes(Time.dayState)>><<set $cummilkbusdesc to "你听到了各种小贩叫卖的声音。">><<else>><<set $cummilkbusdesc to "你听到了喧嚣的音乐和不断沸腾的人群，还有隐隐飘来的酒气。">><</if>><<set $cummilkbusindex to 7>>
+    		<<case "commercial">><<set $cummilkbus to "商业街小巷">><<set $cummilkbusdesc to "你听到了远处街道上的车来人往，但近处却只有你和惠特尼的脚步声。">><<set $cummilkbusindex to 8>>
+        	<<case "high">><<set $cummilkbus to "商业街">><<set $cummilkbusdesc to "你听到了街道上的车来人往，但却没有多少语言交流传入你的耳朵。">><<set $cummilkbusindex to 9>>
+          	<<case "park">><<set $cummilkbus to "公园">><<set $cummilkbusdesc to "你感觉到这里相对更凉爽一些，不时有快速的脚步声从你旁边经过，你还能听见孩童们在游戏区的嬉戏声。">><<set $cummilkbusindex to 10>>
+        	<<case "oxford">><<set $cummilkbus to "牛津街">><<set $cummilkbusindex to 11>>
 				<<if Time.schoolDay and Time.dayState is not "night">>
 					<<set $cummilkbusdesc to "你听到周围不时有车辆经过，不时有孩子们的嬉闹声传入你的耳朵。">>
 				<<else>>
 					<<set $cummilkbusdesc to "你听到周围不时有车辆经过，除此之外一片寂静。">>
 				<</if>>
-    		<<case "industrial">><<set $cummilkbus to "工业区小巷">><<set $cummilkbusdesc to "你闻到周围有一股机油的味道，同时听到周围的建筑里传来机器运转的声音。">>
-        	<<case "harvest">><<set $cummilkbus to "丰收街">><<set $cummilkbusdesc to "你听到周围不断地有车辆经过，不时有各种果蔬的味道钻入你的鼻子。">>
-      		<<case "danube">><<set $cummilkbus to "多瑙河街">><<set $cummilkbusdesc to "你听到周围不时有车辆经过，远处偶尔传来几声狼嚎。">>
-          	<<case "wolf">><<set $cummilkbus to "狼街">><<set $cummilkbusdesc to "你听到周围不时有车辆经过，不远处偶尔传来几声狼嚎。">>
-    		<<case "nightingale">><<set $cummilkbus to "南丁格尔街">><<set $cummilkbusdesc to "你听到周围不时有车辆经过，远处偶尔传来几声狼嚎，一股淡淡的消毒水的味道钻入你的鼻子。">>
-        	<<case "elk">><<set $cummilkbus to "麋鹿街">><<set $cummilkbusdesc to "你闻到周围有一股机油和垃圾混合的味道，同时听到周围的建筑里传来机器运转的声音。">>
+    		<<case "industrial">><<set $cummilkbus to "工业区小巷">><<set $cummilkbusdesc to "你闻到周围有一股机油的味道，同时听到周围的建筑里传来机器运转的声音。">><<set $cummilkbusindex to 12>>
+        	<<case "harvest">><<set $cummilkbus to "丰收街">><<set $cummilkbusdesc to "你听到周围不断地有车辆经过，不时有各种果蔬的味道钻入你的鼻子。">><<set $cummilkbusindex to 13>>
+      		<<case "danube">><<set $cummilkbus to "多瑙河街">><<set $cummilkbusdesc to "你听到周围不时有车辆经过，远处偶尔传来几声狼嚎。">><<set $cummilkbusindex to 14>>
+          	<<case "wolf">><<set $cummilkbus to "狼街">><<set $cummilkbusdesc to "你听到周围不时有车辆经过，不远处偶尔传来几声狼嚎。">><<set $cummilkbusindex to 15>>
+    		<<case "nightingale">><<set $cummilkbus to "南丁格尔街">><<set $cummilkbusdesc to "你听到周围不时有车辆经过，远处偶尔传来几声狼嚎，一股淡淡的消毒水的味道钻入你的鼻子。">><<set $cummilkbusindex to 16>>
+        	<<case "elk">><<set $cummilkbus to "麋鹿街">><<set $cummilkbusdesc to "你闻到周围有一股机油和垃圾混合的味道，同时听到周围的建筑里传来机器运转的声音。">><<set $cummilkbusindex to 17>>
 		<</switch>>
 	<</if>>
 <</widget>>
@@ -215,10 +214,10 @@
 
 <<widget cummilkwhitneywalkevent>>
 <<endevent>><<npc Whitney>><<person1>>
-<<switch random(1,5)>>
+<<switch random(1,25)>>
 <<case 1>>
 	你感觉拽着你的绳索不再紧绷，惠特尼的脚步声也停了下来，你乖巧的停了下来。<br>
-	你听到<<he>>在和其他人交谈着<<print [`什么`,`学校的趣闻`,`酒吧的趣闻`,`荤段子`][random(0,3)]>>，
+	你听到<<he>>在和其他人交谈着<<print [`什么`,`学校的趣闻`,`酒吧的趣闻`,``][random(0,3)]>>，
 	<<switch random(1,3)>>
 	<<case 1>> 你感觉对方的声音有些熟悉，也许是你的同学？
 		<<if $promiscuity gt 75>> 但你不在乎，你只想享受这未知的刺激感。
@@ -235,6 +234,7 @@
 	你感受到绳子从脖子上松开，耳边传来<<he>>逐渐远去的脚步声。
 	<<he>>……离开了吗？
 	你孤零零地站在原地，什么也看不见，什么也做不了。
+	<br>
 	<<switch random(1,3)>>
 	<<case 1>> 你听到<<his>>的声音远远传来：“乖乖等我。”
 	<<case 2>> 一阵沉默，连<<his>>的气息都听不到了，仿佛真的被抛下。
@@ -251,6 +251,7 @@
 	在你等的焦急时惠特尼回来了。
 <<case 3>>
 	你听到远处传来杂乱的声音，像是人群、车辆，或某种集会。
+	<br>
 	声音混杂而模糊，无法看见的你只能靠猜测填补画面。
 	<<switch random(1,3)>>
 	<<case 1>> 像是路边摊位的叫卖声，还有讨价还价的声音。
@@ -267,6 +268,7 @@
 <<case 4>>
 	<<if ["barb", "cliff", "starfish", "mer", "domus", "connudatus", "high", "oxford", "harvest", "danube", "wolf", "nightingale", "elk",].includes($bus)>>
 		你感觉脚下地面变得粗糙、干燥，仿佛是柏油马路。
+		<br>
 		<<switch random(1,2)>>
 		<<case 1>> 有车辆从你面前呼啸而过，卷起风声，你下意识地往后缩。
 		<<case 2>> 你听到“嘀嘀”声，是红绿灯的提示音，惠特尼拉了你一把，你才跟着迈步。
@@ -276,6 +278,7 @@
 		<</if>>
 	<<else>>
 		周围寂静得出奇，风声拂过耳边，像是荒无人烟的巷道。
+		<br>
 		你随着惠特尼的脚步慢慢走着，感觉时间都凝固了。
 		<<switch random(1,2)>>
 		<<case 1>> 你怀疑自己是不是被带到了某个私密场所。
@@ -287,6 +290,7 @@
 	<</if>>
 <<case 5>>
 	你感受到有人靠近，脚步停在你面前，陌生的气息扑面而来，你却无法后退。
+	<br>
 	<<switch random(1,3)>>
 	<<case 1>> “喂，这个<<girl>>不会是真的瞎了吧？”一个男声低声调侃。
 	<<case 2>> 有人用手指碰了碰你脸颊，你吓得全身一震。
@@ -301,6 +305,7 @@
 	<</if>>
 <<case 6>>
 	你听到一个稚嫩的声音问：“妈妈，那个人怎么像条狗一样啊？”，成熟的声音慌张地小声回应。
+	<br>
 	<<switch random(1,2)>>
 	<<case 1>> 你紧紧咬住口塞，脸颊发烫。
 	<<case 2>> 你低下头，试图隐藏自己的羞耻。
@@ -311,6 +316,7 @@
 <<case 7>>
 	脚步停下，你听到惠特尼和人寒暄的声音。
 	对话中偶尔夹杂着“这个<<girl>>真乖”“训练得不错”的话语。
+	<br>
 	<<switch random(1,2)>>
 	<<case 1>> 你在原地绷紧身体，听不出对方是男是女。
 	<<case 2>> 你感受到绳索微微收紧，仿佛是在提醒你展示姿态。
@@ -321,12 +327,14 @@
 <<case 8>>
 	你听到有人吹了声口哨，随后是低声的笑声和窃窃私语。
 	听不出他们离你有多近，但声音仿佛贴在你耳边。
+	<br>
 	<<if $promiscuity lt 75>> 你缩紧肩膀，感到一股寒意。
 	<<else>> 你轻轻呼吸，控制身体不自主的颤抖。
 	<</if>>
 <<case 9>>
 	绳子猛地一紧，你被拉着前行，脚步几乎跟不上。
 	衣物摩擦着皮肤，铃铛伴随脚步不安地作响。
+	<br>
 	<<switch random(1,2)>>
 	<<case 1>> 你踉跄几步，手不自觉的攥紧。
 	<<case 2>> 你觉得项圈像手一样箍紧你的脖子，你难受的呜咽出声。
@@ -336,11 +344,13 @@
 	<</if>>
 <<case 10>>
 	一阵低吼声突然在你身边响起，狗的喘息声近在咫尺，呵斥声随之而起，但你腿软了半分。
+	<br>
 	<<if $promiscuity lt 75>> 你下意识地后退了一步。
 	<<else>> 你强迫自己站住，享受着紧张的感觉。
 	<</if>>
 <<case 11>>
 	你隐约听到快门声，“咔哒”，不止一声。
+	<br>
 	惠特尼并没有阻止，反而让你原地不动。
 	<<switch random(1,3)>>
 	<<case 1>> 你羞耻地低下头，耳根发烫。
@@ -352,7 +362,7 @@
 	<</if>>
 <<case 12>>
 	你察觉到周围的环境突然变了，空气中带着一股说不清的味道。
-
+	<br>
 	<<switch random(1,3)>>
 	<<case 1>> 有人经过你身边，动作很快，你几乎屏住呼吸，试图判断对方有没有停下来看你。
 	<<case 2>> 地面忽然变得粘滑，像是有人洒了饮料，你被牵着小心地绕开。
@@ -364,6 +374,7 @@
 	<</if>>
 <<case 13>>
 	地上似乎掉落了硬币，你听到叮的一声。
+	<br>
 	有人小声说：“投币表演吗？翘起尾巴给我看看。”
 	<<switch random(1,2)>>
 	<<case 1>> 你羞愧得几乎跪下。
@@ -374,12 +385,14 @@
 	<</if>>
 <<case 14>>
 	地面轻轻一滑，你身体后倾，被惠特尼拉住项圈才没有摔倒。
+	<br>
 	惠特尼没说话，只是摸了你屁股一把。
 	<<if $promiscuity lt 75>> 你紧张到手脚冰冷。
 	<<else>> 你呼出一口气，仿佛刚被拥抱了一下。
 	<</if>>
 <<case 15>>
 	两人的脚步声从你耳边擦过，带着笑意与赞赏的语调。
+	<br>
 	“<<he>>站得真乖啊……像只听话的小狗。”
 	<<switch random(1,2)>>
 	<<case 1>> 你下意识抬起头，感到热意冲上耳根。
@@ -389,8 +402,9 @@
 	<<else>> 你下意识挺直腰背，像在展示自己。
 	<</if>>
 <<case 16>>
-	<<set _tmp to [][random(0,)]>>
+	<<set _tmp to ["罗宾","凯拉尔","悉尼","艾弗里"][random(0,3)]>>
 	一阵熟悉的味道飘过，你脑中猛地闪现一个人的脸，是_tmp？
+	<br>
 	<<switch random(1,2)>>
 	<<case 1>> 你心跳加快，担心真的是_tmp。
 	<<case 2>> 你咬住口塞，加装一旦也不慌张。
@@ -400,12 +414,14 @@
 	<</if>>
 <<case 17>>
 	你站着不动，突然听到耳边传来一阵热气，有人靠得很近，但没有发出一点声音。
+	<br>
 	空气带着陌生人的气息，你却动弹不得。
 	<<if $promiscuity lt 75>> 你肌肉紧绷，指尖泛白。
 	<<else>> 你悄悄张开嘴，想要回应那靠近的气息。
 	<</if>>
 <<case 18>>
 	你听到相机的咔嚓音，还有几声轻笑。
+	<br>
 	是自拍？是直播？你无法确认，只能想象。
 	<<switch random(1,3)>>
 	<<case 1>> 你挺直身体，像是模特。
@@ -417,12 +433,14 @@
 	<</if>>
 <<case 19>>
 	你听到皮鞋敲击地面的节奏整齐有力，仿佛是巡逻的步伐。
+	<br>
 	你无法确认对方的身份，只有心跳愈发剧烈。
 	<<if $promiscuity lt 75>> 你闭紧嘴巴，祈祷他们没有注意你。
 	<<else>> 你微微仰头，等待那声音离你更近一些。
 	<</if>>
 <<case 20>>
 	一阵风吹来，衣服仿佛被吹开了，你浑身一震。
+	<br>
 	惠特尼没有提醒你整理，只是静静地站着。
 	<<switch random(1,2)>>
 	<<case 1>> 你夹紧腿，祈祷布料没被掀太高。
@@ -433,6 +451,7 @@
 	<</if>>
 <<case 21>>
 	有人压低声音在说话，你只能听到只言片语：
+	<br>
 	<<switch random(1,3)>>
 	<<case 1>> “……这个<<girl>>是谁啊……好像是那个……”
 	<<case 2>> “……你看这项圈，是定做的吗？”
@@ -443,12 +462,14 @@
 	<</if>>
 <<case 22>>
 	你感觉路线熟悉，空气中的味道是来时经过的街口。
+	<br>
 	惠特尼在带你绕圈？
 	<<if $promiscuity lt 75>> 你有点迷失，脚下虚浮。
 	<<else>> 你像是在完成一场仪式，心中充满成就感。
 	<</if>>
 <<case 23>>
 	一阵扑鼻的花香传来，你下意识张嘴，却咬到口塞。
+	<br>
 	有人在你前方笑着说：“好乖啊，真想摸摸。”
 	<<switch random(1,2)>>
 	<<case 1>> 你立刻低头不语，双腿微微内扣。
@@ -459,12 +480,14 @@
 	<</if>>
 <<case 24>>
 	柔软的什么东西轻触你的腿，是动物？
+	<br>
 	一声“喵”传来，它绕着你转了一圈。
 	<<if $promiscuity lt 75>> 你忍住尖叫，努力不动。
 	<<else>> 你缓缓跪下，默默接受它的好奇。
 	<</if>>
 <<case 25>>
 	你感觉有湿热的液体喷射到你的小腿和脚上，有人轻笑。
+	<br>
 	惠特尼轻轻拍了拍你，示意你继续站好。
 	<<switch random(1,2)>>
 	<<case 1>> 你颤抖着吸了口气，拼命保持姿态。
@@ -473,5 +496,6 @@
 	<<if $promiscuity lt 75>> 你惊恐地收紧身体，想要逃避。
 	<<else>> 你纹丝不动，默默承受那未知的羞耻。
 	<</if>>
+	<<set $hygiene += 500>><<bodyliquid "feet" "semen">>
 <</switch>>
 <</widget>>
