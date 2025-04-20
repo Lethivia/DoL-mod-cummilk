@@ -1,6 +1,6 @@
 {
   "name": "cummilk",
-  "version": "5.3.7.6",
+  "version": "5.3.7.7",
   "styleFileList": [],
   "scriptFileList_inject_early": [],
   "scriptFileList": [
@@ -130,7 +130,7 @@
                     "all": true
                 },
                 {
-                    "passage": "Whitney Gifts Vindaloo Eat",
+                    "passage": "Whitney Gifts Pizza Refuse",
                     "findString": "<<whitneyoptions>>",
                     "replace": "<<cummilkgiftwhitney>><<if $cummilkkeepwhitneyoptions>><<unset $cummilkkeepwhitneyoptions>>\n<<whitneyoptions>>\n<</if>>",
                     "all": true
@@ -160,19 +160,13 @@
                     "all": true
                 },
                 {
-                    "passage": "Whitney Gifts Flapjack Nibble",
-                    "findString": "<<whitneyoptions>>",
-                    "replace": "<<cummilkgiftwhitney>><<if $cummilkkeepwhitneyoptions>><<unset $cummilkkeepwhitneyoptions>>\n<<whitneyoptions>>\n<</if>>",
-                    "all": true
-                },
-                {
                     "passage": "Whitney Gifts Flapjack Help",
                     "findString": "<<whitneyoptions>>",
                     "replace": "<<cummilkgiftwhitney>><<if $cummilkkeepwhitneyoptions>><<unset $cummilkkeepwhitneyoptions>>\n<<whitneyoptions>>\n<</if>>",
                     "all": true
                 },
                 {
-                    "passage": "Whitney Gifts Flapjack Help",
+                    "passage": "Whitney Gifts Flapjack Laugh",
                     "findString": "<<whitneyoptions>>",
                     "replace": "<<cummilkgiftwhitney>><<if $cummilkkeepwhitneyoptions>><<unset $cummilkkeepwhitneyoptions>>\n<<whitneyoptions>>\n<</if>>",
                     "all": true
@@ -185,6 +179,18 @@
                 },
                 {
                     "passage": "Whitney Gifts Flapjack Scoff",
+                    "findString": "<<whitneyoptions>>",
+                    "replace": "<<cummilkgiftwhitney>><<if $cummilkkeepwhitneyoptions>><<unset $cummilkkeepwhitneyoptions>>\n<<whitneyoptions>>\n<</if>>",
+                    "all": true
+                },
+                {
+                    "passage": "Whitney Gifts Belgian Necessary",
+                    "findString": "<<whitneyoptions>>",
+                    "replace": "<<cummilkgiftwhitney>><<if $cummilkkeepwhitneyoptions>><<unset $cummilkkeepwhitneyoptions>>\n<<whitneyoptions>>\n<</if>>",
+                    "all": true
+                },
+                {
+                    "passage": "Whitney Gifts Belgian Friends",
                     "findString": "<<whitneyoptions>>",
                     "replace": "<<cummilkgiftwhitney>><<if $cummilkkeepwhitneyoptions>><<unset $cummilkkeepwhitneyoptions>>\n<<whitneyoptions>>\n<</if>>",
                     "all": true

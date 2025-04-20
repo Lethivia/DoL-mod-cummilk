@@ -162,7 +162,7 @@
 	<<else>>
 		<<switch $bus>>
 			<<case "barb">><<set $cummilkbus to "倒钩街">><<set $cummilkbusdesc to "你感到些许轻微的风吹来，周围满是车流的嘈杂，不时有警笛的声音传来。">><<set $cummilkbusindex to 1>>
-			<<case "clif">> <<set $cummilkbus to "峭壁街">><<set $cummilkbusdesc to "你感到一阵阵轻微的风吹来，同时闻到了若有若无的食物香味。">><<set $cummilkbusindex to 2>>
+			<<case "cliff">> <<set $cummilkbus to "峭壁街">><<set $cummilkbusdesc to "你感到一阵阵轻微的风吹来，同时闻到了若有若无的食物香味。">><<set $cummilkbusindex to 2>>
         	<<case "starfish">><<set $cummilkbus to "海星街">><<set $cummilkbusdesc to "你感到一阵阵轻微的风吹来，周围满是嘈杂喧闹的声音。">><<set $cummilkbusindex to 3>>
         	<<case "mer">><<set $cummilkbus to "梅尔街">><<set $cummilkbusdesc to "你感到些许轻微的风吹来，周围满是吵闹的噪音。">><<set $cummilkbusindex to 4>>
         	<<case "domus">><<set $cummilkbus to "宅邸街">><<set $cummilkbusdesc to "你听到了街道上的车来人往，其中夹杂着一些孩子们的声音。">><<set $cummilkbusindex to 5>>
