@@ -1,6 +1,6 @@
 {
   "name": "cummilk",
-  "version": "5.3.7.7",
+  "version": "5.3.7.8",
   "styleFileList": [],
   "scriptFileList_inject_early": [],
   "scriptFileList": [
@@ -68,7 +68,7 @@
         {
           "passage": "Widgets Tending",
           "findString": "<<set $plants[$_type].amount += (_args[1] ? _args[1] : 1)>>",
-          "replace": "<<set $plants[$_type].amount += (_args[1] ? _args[1] : 1)>><<set _cumcount to (_args[1] ? _args[1] : 1)>><<if _cumcount gte 1 and $cummilk_flag is not undefined and $cummilk_flag>><<if $plants[$_type].cummilkamount is undefined>><<set $plants[$_type].cummilkamount to 0>><</if>><<set $plants[$_type].cummilkamount += _cumcount>><<elseif _cumcount lt 0 and $plants[$_type].cummilkamount gte _cumcount>><<set $plants[$_type].cummilkamount += _cumcount>><</if>>"
+          "replace": "<<set $plants[$_type].amount += (_args[1] ? _args[1] : 1)>><<set _cumcount to (_args[1] ? _args[1] : 1)>><<if _cumcount gte 1 and $cummilk_flag is not undefined and $cummilk_flag>><<set $cummilk_flag to false>><<if $plants[$_type].cummilkamount is undefined>><<set $plants[$_type].cummilkamount to 0>><</if>><<set $plants[$_type].cummilkamount += _cumcount>><<elseif _cumcount lt 0 and $plants[$_type].cummilkamount gte 1>><<set $plants[$_type].cummilkamount -= 1>><</if>>"
         },
                 {
                     "passage": "Widgets Kitchen",
