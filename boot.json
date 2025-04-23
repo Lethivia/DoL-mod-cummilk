@@ -1,6 +1,6 @@
 {
   "name": "cummilk",
-  "version": "5.3.7.8",
+  "version": "5.4.6.8",
   "styleFileList": [],
   "scriptFileList_inject_early": [],
   "scriptFileList": [
@@ -25,28 +25,33 @@
         },
         {
           "passage": "Widgets Kitchen",
-          "findString": "<<= _e lt setup",
-          "replace": "<<if $plants[_ingredient].cummilkamount is not undefined and $plants[_ingredient].cummilkamount gte 1>>含<span class='pink'>风味自制奶</span><</if>><<= _e lt setup"
+          "findString": "[$_usedIngredient].amount>>)</span>",
+          "replace": "[$_usedIngredient].amount>>)</span><<if $plants[$_usedIngredient].cummilkamount is not undefined and $plants[$_usedIngredient].cummilkamount gte 1>>含<span class='pink'>风味自制奶</span><</if>>"
         },
         {
           "passage": "Widgets Kitchen",
-          "findString": "<<tending_give _args[0] setup.plants[_args[0]].multiplier>>",
+          "findString": "<<tending_give _args[0] `setup.plants[_args[0]].multiplier * (_args[1] or 1)`>>",
           "replace": "<<set $cummilk_flag to false>>"
         },
         {
           "passage": "Widgets Kitchen",
           "findString": "<<wearProp setup.plants[_args[0]].handheld>>",
-          "replace": "<<tending_give _args[0] setup.plants[_args[0]].multiplier>><<wearProp setup.plants[_args[0]].handheld>>"
+          "replace": "<<tending_give _args[0] `setup.plants[_args[0]].multiplier * (_args[1] or 1)`>><<wearProp setup.plants[_args[0]].handheld>>"
         },
         {
           "passage": "Widgets Kitchen",
-          "findString": "<<tending_give setup.plants[_args[0]].ingredients[_i] -1>>",
-          "replace": "<<set _ingredient to setup.plants[_args[0]].ingredients[_i]>><<if $plants[_ingredient].cummilkamount is not undefined and $plants[_ingredient].cummilkamount gte 1>><<set $plants[_ingredient].cummilkamount -= 1>><<set $cummilk_flag to true>><</if>><<tending_give setup.plants[_args[0]].ingredients[_i] -1>>"
+          "findString": "<<tending_give $_ingredient `-(_args[1] or 1)`>>",
+          "replace": "<<if $plants[$_ingredient].cummilkamount is not undefined and $plants[$_ingredient].cummilkamount gte 1>><<set $plants[$_ingredient].cummilkamount -= 1>><<set $cummilk_flag to true>><</if>><<tending_give $_ingredient `-(_args[1] or 1)`>>"
+        },
+        {
+          "passage": "Widgets Kitchen",
+          "findString": "<<recipe_name _food \"cap\">>",
+          "replace": "<<recipe_name _food \"giftcap\">>"
         },
         {
           "passage": "Widgets Kitchen",
           "findString": "<<set $_recipeName to $_recipeName.toUpperFirst()>>",
-          "replace": "<<set $_recipeName to $_recipeName.toUpperFirst()>><<if $plants[_args[0]] is not undefined and $plants[_args[0]].cummilkamount is not undefined and $plants[_args[0]].cummilkamount gte 1>><<set $_recipeName to $_recipeName + '(含<span class=\\\"pink\\\">风味自制奶</span>)'>><</if>>"
+          "replace": "<<set $_recipeName to $_recipeName.toUpperFirst()>><<if _args[1]?.includes("giftcap") and $plants[_args[0]] is not undefined and $plants[_args[0]].cummilkamount is not undefined and $plants[_args[0]].cummilkamount gte 1>><<set $_recipeName to $_recipeName + '(含<span class=\\\"pink\\\">风味自制奶</span>)'>><</if>>"
 		},
         {
           "passage": "Widgets Journal",
