@@ -47,12 +47,12 @@
 	<<if $cummilksex>>
 		<!--case "chest" "chestentrance" "chestimminent" -->
 		<<switch $player.gender>>
-			<<case "h" "m">>
-				<<set $penisuse to "othermouth">><<set $penisstate to "othermouthentrance">><<set $NPCList[0].mouth to "penisentrance">><<set $penistarget to 0>>
-                <!--<set $NPCList[0].location.head to "genitals">-->
-                <<if $npc[0] is "Robin">><<set $mouthuse to 1>><</if>>
 			<<case "f">>
 				<<set $NPCList[0].mouth to "chestentrance">><<set $chestuse to "mouth">><<set $cheststate to "mouthentrance">><<set $chesttarget to 0>>
+                <<if $npc[0] is "Robin">><<set $mouthuse to 1>><</if>>
+			<<default>>
+				<<set $penisuse to "othermouth">><<set $penisstate to "othermouthentrance">><<set $NPCList[0].mouth to "penisentrance">><<set $penistarget to 0>>
+                <!--<set $NPCList[0].location.head to "genitals">-->
                 <<if $npc[0] is "Robin">><<set $mouthuse to 1>><</if>>
 		<</switch>>
 	<</if>>
@@ -61,10 +61,10 @@
 <<widget cummilksexcheckother>>
 	<<if $cummilksex>>
 		<<switch $NPCList[0].gender>>
-			<<case "h" "m">>
-				<<set $NPCList[0].penis to "mouthentrance">><<set $mouthstate to "entrance">><<set $mouthuse to "penis">><<set $mouthtarget to 0>>
 			<<case "f">>
 				<<set $NPCList[0].chest to "mouthentrance">><<set $mouthstate to "breasts">><<set $mouthuse to "breasts">><<set $mouthtarget to 0>>
+			<<default>>
+				<<set $NPCList[0].penis to "mouthentrance">><<set $mouthstate to "entrance">><<set $mouthuse to "penis">><<set $mouthtarget to 0>>
 		<</switch>>
 	<</if>>
 <</widget>>

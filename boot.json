@@ -1,6 +1,6 @@
 {
   "name": "cummilk",
-  "version": "5.4.6.8",
+  "version": "5.4.8.8",
   "styleFileList": [],
   "scriptFileList_inject_early": [],
   "scriptFileList": [
@@ -51,7 +51,7 @@
         {
           "passage": "Widgets Kitchen",
           "findString": "<<set $_recipeName to $_recipeName.toUpperFirst()>>",
-          "replace": "<<set $_recipeName to $_recipeName.toUpperFirst()>><<if _args[1]?.includes("giftcap") and $plants[_args[0]] is not undefined and $plants[_args[0]].cummilkamount is not undefined and $plants[_args[0]].cummilkamount gte 1>><<set $_recipeName to $_recipeName + '(含<span class=\\\"pink\\\">风味自制奶</span>)'>><</if>>"
+          "replace": "<<set $_recipeName to $_recipeName.toUpperFirst()>><<if _args[1]?.includes(\"giftcap\") and $plants[_args[0]] is not undefined and $plants[_args[0]].cummilkamount is not undefined and $plants[_args[0]].cummilkamount gte 1>><<set $_recipeName to $_recipeName + '(含<span class=\\\"pink\\\">风味自制奶</span>)'>><</if>>"
 		},
         {
           "passage": "Widgets Journal",

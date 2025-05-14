@@ -29,12 +29,12 @@
         <<he>>充满结实肌肉的身体慢慢靠近了你，你被吓得后退了几步。
         <<he>>两只手抓住你的腿用力一提，你只觉一阵眩晕，竟被伊甸拎了起来。
         <<set $cummilkedenhang to true>>
-        <br>
+        <br><br>
 		<<switch $player.gender>>
-			<<case "h" "m">>
-                <<he>>将嘴靠近你的<<penis>>。
             <<case "f">>
                 <<he>>将嘴靠近你的<<breasts>>。
+			<<default>>
+                <<he>>将嘴靠近你的<<penis>>。
 		<</switch>>
         <br><br>
 		<<link [[继续|Eden Cummilk Sex]]>><<set $sexstart to 1>><<set $cummilksex to true>><<npc Eden>><<person1>><</link>>
@@ -48,22 +48,22 @@
         伊甸舔了舔嘴唇向你走来，"我想尝尝他们原本的味道"，<<he>>说完走到了你的面前。
         <<he>>两只手抓住你的腿用力一提，你只觉一阵眩晕，竟被伊甸拎了起来。
         <<set $cummilkedenhang to true>>
-        <br>
+        <br><br>
 	    <<switch $player.gender>>
-	    	<<case "h" "m">>
-                <<he>>将嘴靠近你的<<penis>>。
             <<case "f">>
                 <<he>>将嘴靠近你的<<breasts>>。
+	    	<<default>>
+                <<he>>将嘴靠近你的<<penis>>。
 	    <</switch>>
         <br><br>
 	    <<link [[继续|Eden Cummilk Sex]]>><<set $sexstart to 1>><<set $cummilksex to true>><<npc Eden>><<person1>><<set $cummilkedenlowdom to true>><</link>>
     <<else>>
         伊甸略有惊讶的说，"是么？让我尝尝原味的"，说完<<he>>一把将你搂入怀中，
 	    <<switch $player.gender>>
-	    	<<case "h" "m">>
-                <<he>>将嘴靠近你的<<penis>>。
             <<case "f">>
                 <<he>>将嘴靠近你的<<breasts>>。
+	    	<<default>>
+                <<he>>将嘴靠近你的<<penis>>。
 	    <</switch>>
         <br><br>
 	    <<link [[继续|Eden Cummilk Sex]]>><<set $sexstart to 1>><<set $cummilksex to true>><<npc Eden>><<person1>><<set $cummilkedenlowdom to true>><</link>>
@@ -87,20 +87,20 @@
         <br>
     <</if>>
 <<else>>
-    "你以为我味觉失灵了么？别以为我不知道你用了什么！"，伊甸愤怒的说着。"你是不是还给别人吃过？！你是我的所有物，你的一切都是我的！"，你害怕得后退着。伊甸随手抄起周围的物品向你扔来，你勉强闪避但还有砸到了你身上。
+    "你以为我味觉失灵了么？别以为我不知道你用了什么！"，伊甸愤怒的说着。"你是不是还给别人吃过？！你是我的所有物，你的一切都是我的！"，你害怕得后退着。伊甸随手抄起周围的物品向你扔来，你勉强闪避但还有一些砸到了你身上。
     <<gpain>><<pain 3>>
     <br><br>
     伊甸向你逼来...终于<<he>>站到了你的面前，左一拳<<gpain>><<pain 3>>右一拳<<gpain>><<pain 3>>的向你打来，"说！你还给谁吃过！"，拳头像雨点一样扑面而来<<ggpain>><<pain 8>><<ggpain>><<pain 8>><<ggpain>><<pain 8>><<ggpain>><<pain 8>>，你咬牙忍受着。
     <br>
-    "对不起..对不起.."你泣不成声<<ggtrauma>><<trauma 20>><<gggdom>><<npcincr Eden dom 30>>。终于伊甸似乎稍微缓和了下来，<<he>>两只手抓住你的腿用力一提，你被伊甸拎了起来，就像<<he>>打到的战利品。
-    <br>
+    "对不起..对不起.."你泣不成声<<ggtrauma>><<trauma 20>><<gggdom>><<npcincr Eden dom 30>>。终于伊甸似乎稍微缓和了下来，<<he>>两只手抓住你的腿用力一提，你被伊甸拎了起来，就像<<he>>狩猎到的战利品。
+    <br><br>
     <<set $cummilkedenhang to true>>
     <<set $molestationstart to 1>>
 	<<switch $player.gender>>
-		<<case "h" "m">>
-            <<he>>将嘴靠近你的<<penis>>。
         <<case "f">>
             <<he>>将嘴靠近你的<<breasts>>。
+		<<default>>
+            <<he>>将嘴靠近你的<<penis>>。
 	<</switch>>
     <br><br>
 	<<link [[继续|Eden Cummilk Sex]]>><<set $sexstart to 1>><<set $cummilksex to true>><<npc Eden>><<person1>><<set $cummilkedenanger to true>><<set $molestationstart to 1>><</link>>
@@ -114,12 +114,9 @@
 	<<ejaculation>><<npcincr Eden lust -20>>
 
     <<if $orgasmcurrent is 0>>
-		<<switch $player.gender>>
-			<<case "h" "m">>
-                伊甸喘着气，不可思议的看着你，"你还挺持久？我看你能撑几次！"，说完又向你扑过来。
-                <<npcincr Eden lust 20>><<glust>>
-                <<set _cummilk_sex_continue to true>>
-		<</switch>>
+        伊甸喘着气，不可思议的看着你，"你还挺持久？我看你能撑几次！"，说完又向你扑过来。
+        <<npcincr Eden lust 20>><<glust>>
+        <<set _cummilk_sex_continue to true>>
     <</if>>
     <<if _cummilk_sex_continue is not true>>
         <<if $cummilkedenlowdom>>
@@ -142,16 +139,16 @@
 <<elseif $enemyhealth lte 0>>
     你将伊甸推倒在地，
 	<<switch $player.gender>>
-		<<case "h" "m">>
-            接着你开始撸动你的<<penis>>，<<he>>想要爬起来但一时竟没有成功。随着你撸动的速度越来越快，<<he>>也不再挣扎，只是有些惊讶地看着你。
-            <br><br>
-            <<set $arousal to $arousalmax>><<orgasm>><<penileejacstat>><<penilestat>>
-            "你不是想要么？那就给你"，你刚说完一股精液就喷涌而出，落到了伊甸的脸上，<<he>>沉默的闭上了眼睛。等你不再喘息时你才开始后怕，但伊甸没有爆发，只是一言不发地走开，伸手抹去了嘴边的精液。
         <<case "f">>
             接着你开始揉捏你的<<breasts>>，<<he>>有些惊讶地看着你。
             <br><br>
             <<set $arousal to $arousalmax>><<orgasm>><<penileejacstat>><<penilestat>>
             "你不是想要么？那就给你"，随着你的揉捏，母乳不断的落到伊甸的脸上，<<he>>沉默的闭上了眼睛。等你冷静下来时你才开始后怕，但伊甸没有爆发，只是一言不发地走开，伸手抹去了嘴边的液体。
+		<<default>>
+            接着你开始撸动你的<<penis>>，<<he>>想要爬起来但一时竟没有成功。随着你撸动的速度越来越快，<<he>>也不再挣扎，只是有些惊讶地看着你。
+            <br><br>
+            <<set $arousal to $arousalmax>><<orgasm>><<penileejacstat>><<penilestat>>
+            "你不是想要么？那就给你"，你刚说完一股精液就喷涌而出，落到了伊甸的脸上，<<he>>沉默的闭上了眼睛。等你不再喘息时你才开始后怕，但伊甸没有爆发，只是一言不发地走开，伸手抹去了嘴边的精液。
 	<</switch>>
     <<npcincr Eden lust -10>><<llust>>
     <<npcincr Eden dom -20>><<ldom>>
@@ -213,8 +210,8 @@
 <<if $sexstart is 1>>
 	惠特尼将你的头按了下去，
 	<<switch $NPCList[0].gender>>
-		<<case "h" "m">> 你的嘴边是<<he>>又热又硬的肉棒。
 		<<case "f">> 你的嘴边是<<he>>又热又软的胸部。
+		<<default>> 你的嘴边是<<he>>又热又硬的肉棒。
 	<</switch>>
 	<br>
 	<<set $sexstart to 0>>
@@ -355,8 +352,8 @@ $cummilkbusdesc
     <<alleyicon>><<link [[住宅区小巷|Whitney Cummilk Dom Walk End]]>><<set $cummilktmp to 6>><</link>> <br>
     <<alleyicon>><<link [[商业区小巷|Whitney Cummilk Dom Walk End]]>><<set $cummilktmp to 8>><</link>> <br>
     <<alleyicon>><<link [[工业区小巷|Whitney Cummilk Dom Walk End]]>><<set $cummilktmp to 12>><</link>> <br>
-    <<beachicon>><<link [[|Whitney Cummilk Dom Walk End]]>><<set $cummilktmp to 19>><</link>> <br>
-    <<foresticon>><<link [[|Whitney Cummilk Dom Walk End]]>><<set $cummilktmp to 18>><</link>> <br>
+    <<beachicon>><<link [[海滩|Whitney Cummilk Dom Walk End]]>><<set $cummilktmp to 19>><</link>> <br>
+    <<foresticon>><<link [[森林|Whitney Cummilk Dom Walk End]]>><<set $cummilktmp to 18>><</link>> <br>
 <<else>>
 	<<link [[继续 (0:05)|Whitney Cummilk Dom Walk]]>><<pass 5>><<cummilksetbus>><</link>>
 <</if>>
@@ -411,8 +408,8 @@ $cummilkbusdesc
 <<if $sexstart is 1>>
 	惠特尼将你的头按了下去，
 	<<switch $NPCList[0].gender>>
-		<<case "h" "m">> 你感觉嘴边是又热又硬的美味。
 		<<case "f">> 你感觉嘴边是又热又软的美味。
+		<<default>> 你感觉嘴边是又热又硬的美味。
 	<</switch>>
 	<<if $promiscuity gte 75>>你知道那是什么。<<else>>你猜到了那是什么。<</if>>
 	<br>
