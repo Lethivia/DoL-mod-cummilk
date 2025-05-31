@@ -151,6 +151,8 @@
 			<</if>>
 			<br><br>
 		<</switch>>
+	<<else>>
+		<<set $cummilkkeepwhitneyoptions to true>>
 	<</if>>
 <</widget>>
 
