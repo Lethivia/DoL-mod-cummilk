@@ -1,6 +1,6 @@
 {
   "name": "cummilk",
-  "version": "5.4.8.9",
+  "version": "5.5.9.9",
   "styleFileList": [],
   "scriptFileList_inject_early": [],
   "scriptFileList": [
@@ -30,7 +30,7 @@
         },
         {
           "passage": "Widgets Kitchen",
-          "findString": "<<tending_give _args[0] `setup.plants[_args[0]].multiplier * (_args[1] or 1)`>>",
+          "findString": "<<tending_give _args[0] `setup.plants[_args[0]].multiplier * $_amount`>>",
           "replace": "<<set $cummilk_flag to false>>"
         },
         {
@@ -40,7 +40,7 @@
         },
         {
           "passage": "Widgets Kitchen",
-          "findString": "<<tending_give $_ingredient `-(_args[1] or 1)`>>",
+          "findString": "<<tending_give $_ingredient `-$_amount`>>",
           "replace": "<<if $plants[$_ingredient].cummilkamount is not undefined and $plants[$_ingredient].cummilkamount gte 1>><<set $plants[$_ingredient].cummilkamount -= 1>><<set $cummilk_flag to true>><</if>><<tending_give $_ingredient `-(_args[1] or 1)`>>"
         },
         {
